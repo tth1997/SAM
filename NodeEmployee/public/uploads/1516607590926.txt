@@ -1,0 +1,6 @@
+﻿Tata Sky Subscriber ID	:	1136248950
+Tata Sky Transaction ID	:	TY1604050066677378
+Transaction Date & Time	:	05 Apr 2016 09:12:41
+Bank Transaction ID	:	210026-062989
+Service Tax Code No.	:	AAGCS9294MST002
+Service Categories	:	Inclusive of Service tax & other taxes, duties and cess as applicable

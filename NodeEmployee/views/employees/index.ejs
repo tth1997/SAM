@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link href="/images/favicon.ico" rel="shortcut icon" type="image/png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="wrapper">
+		<div class="sidebar" data-color="blue">
+			<div class="sidebar-wrapper">
+
+
+				<div class="logo">
+					<a href="http://www.safe-lanes.com" class="simple-text">
+						Safe Lanes
+					</a>
+				</div>
+				<ul class="nav">
+					<li>
+						<a href="/dashboard">
+							<p>Dashboard</p>
+						</a>
+					</li>
+
+					<li>
+						<a href="/user">
+							<p>User Profile</p>
+						</a>
+					</li>
+					
+					<li class="active">
+						<a href="/employees">
+							<p>Employee Master</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/vdranalysis">
+							<p>VDR Analysis</p>
+						</a>
+					</li>
+					<li>
+						<a href="/jobassignments">
+							<p>Job Assignment</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="main-panel">
+           <nav class="navbar navbar-default navbar-fixed">
+              <div class="container-fluid">
+                <div  align="right">
+                   <a href="">Account</a>
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                   <a href="#">Log out</a>
+                </div>
+              </div>
+           </nav>
+
+			<div class="content">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="header">
+							<h5><a href="/employees/create">Create Employee</a></h5>
+							<h5>Employee Table</h5>
+						</div>
+
+						<div class="table-responsive">
+							<% if(employees.length>0) { %> 
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Employee code</th>
+										<th>FirstName</th>
+										<th>LastName</th>
+										<th>DOB</th>
+										<th>PassportNo</th>
+										<th>Nationality</th>
+										<th>Permit Status</th>
+										<th>Office</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% for(var i=0; i<employees.length;i++) { %>
+									<tr>
+										<td><a href="/employees/show/<%= employees[i]._id%>"><%= employees[i].employee_id %></a></td>
+										<td><%= employees[i].firstname%></td>
+										<td><%= employees[i].lastname%></td>
+										<td><%= employees[i].dateofbirth%></td>
+										<td><%= employees[i].passportno%></td>
+										<td><%= employees[i].nationality%></td>
+										<td><%= employees[i].permitstatus%></td>
+										<td><%= employees[i].office%></td>
+									</tr>
+									<% } %>
+								</tbody>
+							</table>
+							<% } else { %>
+							<div class="container-fluid"><h5><b>No records found.</b></h5></div>
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
