@@ -56,7 +56,7 @@
 					</li>
 				</ul>
 			</div>
-		</div>
+		</nav>
 	</div>
 
 	<div class="main-panel">
@@ -166,7 +166,7 @@
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>Comments</label>
-													<textarea rows="5" class="form-control" disabled value="<%= employee.comment %>"></textarea>
+													<textarea rows="5" class="form-control" disabled id="comment" name="comment"></textarea>
 												</div>
 											</div>
 										</div>
@@ -197,3 +197,13 @@
 
 					</body>
 					</html>
+
+					<script type="text/javascript">
+
+    $(document).ready(function() {
+
+    	$('#comment').val('<%= employee.comment %>');
+
+    });
+
+    </script>

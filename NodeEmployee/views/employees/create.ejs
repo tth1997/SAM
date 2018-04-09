@@ -1,17 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <link href="/images/favicon.ico" rel="shortcut icon" type="image/png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
-  <meta name="viewport" content="width=device-width" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
-  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
-  <link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+    <meta charset="utf-8" />
+    <link href="/images/favicon.ico" rel="shortcut icon" type="image/png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+    <link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
 </head>
 <body>
     <div class="wrapper">
@@ -112,7 +114,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="country">Country</label>
-                                    <select class="form-control" id="country">
+                                    <select class="form-control" name="country" id="country">
                                         <option>Select Country</option>
                                         <option>Singapore</option>
                                         <option>Malaysia</option>
@@ -122,7 +124,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="city">City</label>
-                                    <select class="form-control" id="city">
+                                    <select class="form-control" name="city" id="city">
                                         <option>Select City</option>
                                         <option>Singapore</option>
                                         <option>Kula Lumpur</option>
@@ -154,7 +156,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="nationality">Nationality</label>
-                                    <select class="form-control" id="nationality">
+                                    <select class="form-control" name="nationality" id="nationality">
                                         <option>Select Nationality</option>
                                         <option>Singaporean</option>
                                         <option>Malaysian</option>
@@ -166,22 +168,15 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="martialstatus">Martial Status</label>
-                                    <div class="form-check">
-                                      <label class="form-check-label">
-                                        <input type="radio" name="martialstatus" id="ms1" value="married"> Married &nbsp;&nbsp; 
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                  <label class="form-check-label">
-                                    <input type="radio" name="martialstatus" id="ms2" value="unmarried"> Unmarried &nbsp;&nbsp; 
-                                </label>
+                                        <input type="radio" name="martialstatus" id="ms1" value="married"/> Married &nbsp;&nbsp; 
+                                    <input type="radio" name="martialstatus" id="ms2" value="unmarried"/> Unmarried &nbsp;&nbsp; 
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="permitstatus">WorkPermit Status</label>
-                            <input type="text" class="form-control" id="permitstatus" placeholder="Enter Permit Type">
+                            <input type="text" class="form-control" name="permitstatus" placeholder="Enter Permit Type">
                         </div>
                     </div>
                 </div>
@@ -234,10 +229,10 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script> -->
 </body>
 </html>
 
