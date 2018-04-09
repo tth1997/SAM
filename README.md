@@ -1,2 +1,2 @@
 # SAM
-SAM web application for Ship audititing. Employee section.
+SAM web application for Ship audititing.
