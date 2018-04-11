@@ -5,7 +5,7 @@ var clientController = {};
 
 	// Show list of clients
 clientController.list= function(req, res){
-	client.find({}).exec(err, clients){
+	client.find({}).exec (function(err, clients){
 	
 		if(err){
 			console.log("Error:", err);
