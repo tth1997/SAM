@@ -35,16 +35,16 @@ employeeController.list = function(req, res) {
 	});
 };
 
-// Show employee by id
-employeeController.show = function(req, res) {
-  Employee.findOne({employee_id: req.params.id}).exec(function (err, employee) {
-    if (err) {
-      console.log("Error:", err);
-    }
-    else {
-      res.render("../views/employees/show", {employee: employee});
-    }
-  });
+//Show employee by id
+employeeController.show = function(req,res){
+	Employee.find({_id: req.params.id}).exec(function (err, employees) {
+		if (err) {
+			console.log("Error:", err);
+		}
+		else {
+			res.render("../views/employees/index", { employees: employees });
+		}
+	});
 };
 
 //Create Employee
