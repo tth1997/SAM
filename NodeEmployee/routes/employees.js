@@ -90,4 +90,44 @@ router.get('/edit/:id', function(req, res) {
   employee.edit(req, res);
 });
 
+// Update employee
+router.post('/update/:id', function(req, res, next) {
+  Employee.findById(req.params.id, function(err, data) {  
+  
+  data.firstname = req.body.firstname;
+  data.lastname = req.body.lastname;
+  data.address = req.body.address;
+  data.office = req.body.office;
+  data.dateofbirth = req.body.dateofbirth;
+  data.passportno = req.body.passportno;
+  data.country = req.body.country;
+  data.city = req.body.city;
+  data.nationality = req.body.nationality;
+  data.maritalstatus = req.body.permitstatus;
+  data.maritalstatus = req.body.maritalstatus;
+  data.comment = req.body.comment;
+  data.dateofjoin = req.body.dateofjoin;
+  // if (req.file) {
+  //       data.photo = req.file.filename;
+  // }
+  data.fathername = req.body.fathername;
+  data.mothername = req.body.mothername;
+
+  data.save(function(err, data) {
+        if (err) {
+          return next(err);
+        }
+        Employee.find({}).exec(function (err, employees) {
+                  if (err) {
+                   console.log("Error:", err);
+                  }
+                  else {
+               res.render("../views/employees/index", {employees: employees});
+                }
+                });
+      });
+    });
+  });
+
+//
 module.exports = router;

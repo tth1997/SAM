@@ -57,6 +57,7 @@ employeeController.create = function(req,res){
 // Edit an employee
 employeeController.edit = function(req, res) {
   Employee.findOne({employee_id: req.params.id}).exec(function (err, employee) {
+  	console.log("Before send", employee);
     if (err) {
       console.log("Error:", err);
     }
