@@ -37,7 +37,7 @@ employeeController.list = function(req, res) {
 
 //Show employee by id
 employeeController.show = function(req,res){
-	Employee.find({employee_id: req.params.id}).exec(function (err, employee) {
+	Employee.findOne({employee_id: req.params.id}).exec(function (err, employee) {
 		
 		console.log("show",req.params.id);
 		if (err) {
@@ -46,7 +46,7 @@ employeeController.show = function(req,res){
 		else {
 			console.log("show 12",employee);
 
-			res.render("../views/employees/show", { employee: employee });
+			res.render("../views/employees/show", {employee: employee});
 		}
 	});
 };
@@ -61,6 +61,7 @@ employeeController.create = function(req,res){
 // Edit an employee
 employeeController.edit = function(req, res) {
   Employee.findOne({employee_id: req.params.id}).exec(function (err, employee) {
+  	console.log("Edit id", req.params.id);
     if (err) {
       console.log("Error:", err);
     }
