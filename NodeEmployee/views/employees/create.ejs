@@ -18,214 +18,211 @@
 <body>
     <div class="wrapper">
         <div class="sidebar" data-color="blue">
-          <div class="sidebar-wrapper">
+            <div class="sidebar-wrapper">
 
 
-            <div class="logo">
-                <a href="http://www.safe-lanes.com" class="simple-text">
-                    Safe Lanes
-                </a>
+                <div class="logo">
+                    <a href="http://www.safe-lanes.com" class="simple-text">
+                        Safe Lanes
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a href="/dashboard">
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/user">
+                            <p>User Profile</p>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a href="/employees">
+                            <p>Employee Master</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/vdranalysis">
+                            <p>VDR Analysis</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/jobassignments">
+                            <p>Job Assignment</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <ul class="nav">
-                <li>
-                    <a href="/dashboard">
-                     <p>Dashboard</p>
-                 </a>
-             </li>
-
-             <li>
-                 <a href="/user">
-                  <p>User Profile</p>
-              </a>
-          </li>
-
-          <li class="active">
-            <a href="/employees">
-             <p>Employee Master</p>
-         </a>
-     </li>
-
-     <li>
-        <a href="/vdranalysis">
-            <p>VDR Analysis</p>
-        </a>
-    </li>
-    <li>
-        <a href="/jobassignments">
-         <p>Job Assignment</p>
-     </a>
- </li>
-</ul>
-</nav>
-</div>
-</div>
-
-<div class="main-panel">
- <nav class="navbar navbar-default navbar-fixed">
-  <div class="container-fluid">
-    <div align="right">
-     <a href="">Account</a>
-     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-     <a href="#">Log out</a>
- </div>
-</div>
-</nav>
-
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="header">
-                    <h5><a href="/employees">Employee List</a></h5>
-                    <h5>Create Employee</h5> 
-                </div>
-                <div class="content">
-                    <form id="createemp" method="post" action="/employees/save"><!--  enctype="multipart/form-data"> -->
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class= "form-group has-feedback">
-                                    <label for="firstname">First Name*</label>
-                                    <input type="text" class="form-control" placeholder="First Name" name="firstname" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class= "form-group">
-                                    <label for="lastname">Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last Name" name="lastname">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input type="text" class="form-control" placeholder="Address" name="address">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="office">Office Address</label>
-                                    <input type="text" class="form-control" placeholder="Office Address" name="office">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="country">Country *</label>
-                                    <select class="form-control" name="country" id="country">
-                                        <option value=''>Select Country</option>
-                                        <option>Singapore</option>
-                                        <option>Malaysia</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="city">City *</label>
-                                    <select class="form-control" name="city" id="city">
-                                        <option value=''>Select City</option>
-                                        <option>Singapore</option>
-                                        <option>Kula Lumpur</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="dateofbirth">DoB *</label>
-                                    <input type="date" class="form-control" name="dateofbirth" placeholder="Date of Birth">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="passportno">Passport No. *</label>
-                                    <input type="text" class="form-control" name="passportno" placeholder="Passport Number">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="dateofjoin">Date of Joining</label>
-                                    <input type="date" class="form-control" name="dateofjoin" placeholder="Date of Joining">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="nationality">Nationality</label>
-                                    <select class="form-control" name="nationality" id="nationality">
-                                        <option value=''>Select Nationality</option>
-                                        <option>Singaporean</option>
-                                        <option>Malaysian</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="martialstatus">Martial Status *</label>
-                                        <input type="radio" name="martialstatus" id="ms1" value="married" /> Married &nbsp;&nbsp; 
-                                    <input type="radio" name="martialstatus" id="ms2" value="unmarried" /> Unmarried &nbsp;&nbsp; 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="permitstatus">Permit Status *</label>
-                            <input type="text" class="form-control" name="permitstatus" placeholder="Enter Permit Type">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <label for="comment">Comments</label>
-                            <textarea class="form-control" name="comment" rows:"5" placeholder="Enter Description"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="photo">Upload Photo of Employee</label>
-                            <input type="file" class="form-control-file" name="photo" id="photo">
-                        </div>
-                    </div>
-                </div> -->
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="fathername">Father Name</label>
-                            <input type="text" class="form-control" name="fathername">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="mothername">Mother Name</label>
-                            <input type="text" class="form-control" name="mothername">
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-fill pull-right">Submit</button>
-                <div class="clearfix"></div>
-            </form>
         </div>
+   
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <div align="right">
+                        <a href="">Account</a>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <a href="#">Log out</a>
+                    </div>
+                </div>
+            </nav>
 
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h5><a href="/employees">Employee List</a></h5>
+                                <h5>Create Employee</h5> 
+                            </div>
+                            <div class="content">
+                                <form id="createemp" method="post" action="/employees/save"><!--  enctype="multipart/form-data"> -->
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class= "form-group has-feedback">
+                                                <label for="firstname">First Name*</label>
+                                                <input type="text" class="form-control" placeholder="First Name" name="firstname" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class= "form-group">
+                                                <label for="lastname">Last Name</label>
+                                                <input type="text" class="form-control" placeholder="Last Name" name="lastname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="address">Address</label>
+                                                <input type="text" class="form-control" placeholder="Address" name="address">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="office">Office Address</label>
+                                                <input type="text" class="form-control" placeholder="Office Address" name="office">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="country">Country *</label>
+                                                <select class="form-control" name="country" id="country">
+                                                    <option value=''>Select Country</option>
+                                                    <option>Singapore</option>
+                                                    <option>Malaysia</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="city">City *</label>
+                                                <select class="form-control" name="city" id="city">
+                                                    <option value=''>Select City</option>
+                                                    <option>Singapore</option>
+                                                    <option>Kula Lumpur</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="dateofbirth">DoB *</label>
+                                                <input type="date" class="form-control" name="dateofbirth" placeholder="Date of Birth">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="passportno">Passport No. *</label>
+                                                <input type="text" class="form-control" name="passportno" placeholder="Passport Number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="dateofjoin">Date of Joining</label>
+                                                <input type="date" class="form-control" name="dateofjoin" placeholder="Date of Joining">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="nationality">Nationality</label>
+                                                <select class="form-control" name="nationality" id="nationality">
+                                                    <option value=''>Select Nationality</option>
+                                                    <option>Singaporean</option>
+                                                    <option>Malaysian</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="martialstatus">Martial Status *</label>
+                                                <input type="radio" name="martialstatus" value="married" > Married &nbsp;&nbsp; 
+                                                <input type="radio" name="martialstatus" value="unmarried" > Unmarried &nbsp;&nbsp; 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="permitstatus">Permit Status *</label>
+                                                <input type="text" class="form-control" name="permitstatus" placeholder="Enter Permit Type">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label for="comment">Comments</label>
+                                                <textarea class="form-control" name="comment" rows:"5" placeholder="Enter Description"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                    <!-- <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="photo">Upload Photo of Employee</label>
+                                <input type="file" class="form-control-file" name="photo" id="photo">
+                            </div>
+                        </div>
+                    </div> -->
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="fathername">Father Name</label>
+                                                <input type="text" class="form-control" name="fathername">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="mothername">Mother Name</label>
+                                                <input type="text" class="form-control" name="mothername">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-fill pull-right">Submit</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-</div>
-</div>
 
-
-
-
-
-</div>
-</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

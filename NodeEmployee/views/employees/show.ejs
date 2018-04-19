@@ -184,8 +184,8 @@
 												</div>
 											</div>
 										</div>
-										<h3><a href="/employees/edit/<%= employee.employee_id %>" class="btn btn-info btn-fill pull-right">EDIT</a></h3>
-										<form action="/employees/delete/<%= employee.employee_id %>" method="post">
+										<h3><a href="/employees/edit/<%= employee._id %>" class="btn btn-info btn-fill pull-right">EDIT</a></h3>
+										<form action="/employees/delete/<%= employee._id %>" method="post">
 											<button type="submit" class="btn btn-primary btn-fill pull-right" onclick="return confirm('Are you sure want to delete?')">DELETE</button>
 											<div class="clearfix">
 											</div>
@@ -203,7 +203,6 @@
 	$(document).ready(function() {
 
 		$('#comment').val('<%= employee.comment %>');
-		alert('<%= employee.comment %>');
 
 	});
 

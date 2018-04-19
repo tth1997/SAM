@@ -85,7 +85,7 @@
 
 							</div>
 							<div class="content">
-								<form id="editemp" enctype="multipart/form-data" action="/employees/update/<%= employee.employee_id %>" method="post">
+								<form id="editemp" action="/employees/update/<%= employee._id %>" method="post">
 									<div class="row">
 										<div class="col-md-4">
 											<div class="form-group">
@@ -221,6 +221,14 @@
 			<script type="text/javascript">
 
 				$(document).ready(function() {
+						     var dt1 = '<%= employee.dateofbirth %>';
+		 d1 = new Date(dt1);
+		 
+		 $('#dateofbirth').val($.datepicker.formatDate('yy-mm-dd', d1));
+		  
+		 var dt2 = '<%= employee.dateofjoining %>';
+		 d2 = new Date(dt2);
+		 $('#dateofjoining').val($.datepicker.formatDate('yy-mm-dd', d2));
 
 					$('#comment').val('<%= employee.comment %>');
 
@@ -233,13 +241,6 @@
 						},
 						fields: {
 							firstname: {
-								validators: {
-									notEmpty: {
-										message: ''
-									}
-								}
-							},
-							dateofbirth: {
 								validators: {
 									notEmpty: {
 										message: ''
@@ -261,13 +262,6 @@
 								}
 							},
 							city: {
-								validators: {
-									notEmpty: {
-										message: ''
-									}
-								}
-							},
-							martialstatus: {
 								validators: {
 									notEmpty: {
 										message: ''

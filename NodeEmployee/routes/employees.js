@@ -43,7 +43,9 @@ router.post('/save', function(req, res, next) {
 	fathername:req.body.fathername,
 	mothername:req.body.mothername
 });
- console.log("after var employee", req.headers,req.body)
+   console.log('print martial status',req.body.maritalstatus);
+ console.log("after var employee", req.headers,req.body);
+ 
 	 if(employee.dateofbirth != null)
 	 {
 	   employee.dateofbirth = employee.dateofbirth.toLocaleDateString("en-US");
@@ -92,6 +94,7 @@ router.get('/edit/:id', function(req, res) {
 
 // Update employee
 router.post('/update/:id', function(req, res, next) {
+  console.log('Update body',req.params.id);
   Employee.findById(req.params.id, function(err, data) {  
   
   data.firstname = req.body.firstname;
@@ -129,5 +132,9 @@ router.post('/update/:id', function(req, res, next) {
     });
   });
 
-//
+// Edit Delete
+router.post('/delete/:id', function(req, res, next) {
+  employee.delete(req, res);
+});
+
 module.exports = router;

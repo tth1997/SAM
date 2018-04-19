@@ -37,7 +37,7 @@ employeeController.list = function(req, res) {
 
 //Show employee by id
 employeeController.show = function(req,res){
-	Employee.findOne({employee_id: req.params.id}).exec(function (err, employee) {
+	Employee.findOne({_id: req.params.id}).exec(function (err, employee) {
 		
 		console.log("show",req.params.id);
 		if (err) {
@@ -60,7 +60,7 @@ employeeController.create = function(req,res){
 
 // Edit an employee
 employeeController.edit = function(req, res) {
-  Employee.findOne({employee_id: req.params.id}).exec(function (err, employee) {
+  Employee.findOne({_id: req.params.id}).exec(function (err, employee) {
   	console.log("Edit id", req.params.id);
     if (err) {
       console.log("Error:", err);
@@ -70,5 +70,25 @@ employeeController.edit = function(req, res) {
     }
   });
 };
+
+// Delete employee
+employeeController.delete = function(req, res){
+	Employee.remove({_id: req.params.id}, function(err){
+		if(err){
+			console.log(err);
+		}
+		else {
+			console.log("Employee deleted!");
+			Employee.find({}).exec(function (err, employees){
+				if (err) {
+					console.log("Error: ", err);
+				}
+				else {
+					res.render("../views/employees/index", {employees: employees});
+				}
+			});
+		}
+		});
+	};
 
 module.exports = employeeController;
