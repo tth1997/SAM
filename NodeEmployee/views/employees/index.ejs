@@ -19,9 +19,7 @@
 
 
 				<div class="logo">
-					<a href="http://www.safe-lanes.com" class="simple-text">
-						Safe Lanes
-					</a>
+						<h1>SAM</h1>
 				</div>
 				<ul class="nav">
 					<li>
@@ -86,6 +84,7 @@
 										<th>DOB</th>
 										<th>PassportNo</th>
 										<th>Nationality</th>
+										<th>Status</th>
 										<th>Permit Status</th>
 										<th>Office</th>
 									</tr>
@@ -93,12 +92,13 @@
 								<tbody>
 									<% for(var i=0; i<employees.length;i++) { %>
 									<tr>
-										<td><a href="/employees/show/<%= employees[i]._id%>"><%= employees[i]._id %></a></td>
+										<td><a href="/employees/show/<%= employees[i]._id%>"><%= employees[i].employee_id %></a></td>
 										<td><%= employees[i].firstname%></td>
 										<td><%= employees[i].lastname%></td>
 										<td><%= employees[i].dateofbirth%></td>
 										<td><%= employees[i].passportno%></td>
 										<td><%= employees[i].nationality%></td>
+										<td><%= employees[i].status%></td>
 										<td><%= employees[i].permitstatus%></td>
 										<td><%= employees[i].office%></td>
 									</tr>

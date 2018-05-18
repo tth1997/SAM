@@ -18,6 +18,7 @@ var EmployeeSchema = new mongoose.Schema({
   dateofjoin: Date,
   fathername: String,
   mothername: String,
+  status: String,
   updated_at: { type: Date, default: Date.now }
   
 });

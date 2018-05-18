@@ -71,24 +71,43 @@ employeeController.edit = function(req, res) {
   });
 };
 
-// Delete employee
-employeeController.delete = function(req, res){
-	Employee.remove({_id: req.params.id}, function(err){
-		if(err){
-			console.log(err);
-		}
-		else {
-			console.log("Employee deleted!");
-			Employee.find({}).exec(function (err, employees){
-				if (err) {
-					console.log("Error: ", err);
-				}
-				else {
-					res.render("../views/employees/index", {employees: employees});
-				}
-			});
-		}
-		});
-	};
+// inactive an employee
+employeeController.inactive = function(req, res) {
+   Employee.findById(req.params.id, function(err, data) {	
+	 var newvalues;
+	 var valStatus = data.status;
+	 var newStatus;
+	 
+	 if(valStatus == "Inactive"){
+		 
+	      newStatus = 'Active';
+	      newvalues = {$set: {status: "Active"} };
+	 }
+	 if(valStatus == "Active"){
+		  
+		  newStatus = 'Inactive';
+	      newvalues = {$set: {status: "Inactive"} };
+	 }
+	 data.status=newStatus;	  
+	
+	 data.save(function(err, data) {
+        if (err) {
+          console.log("Error:", err);
+        }
+	 
+        else {
+          console.log("Client Inactive/Active!");
+          Employee.find({}).exec(function (err, employees) {
+                  if (err) {
+                   console.log("Error:", err);
+                  }
+                  else {
+		           res.redirect("/employees");
+	              }
+                });
+    }
+  });
+});
+};
 
 module.exports = employeeController;

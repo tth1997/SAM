@@ -60,12 +60,9 @@ router.post('/save', function(req, res, next) {
 	   mongoose.connection.db.collection("counters").findAndModify( { _id: 'employeeid' }, null, { $inc: { sequence_value: 1 } }, function(err, result){
         if(err) console.log("Error:",err);
 	         employee_id = result.value.sequence_value;
-			
-			 var joindate = new Date(req.body.dateofjoin);
-             var yyyy = joindate.getFullYear();
-             var year = yyyy.toString().substr(-2);
  
-       employee.employee_id = 'SL' + year + '00' + employee_id ;
+       employee.employee_id = 'SL' + '00' + employee_id ;
+       employee.status = "Active";
 
    employee.save(function(err){
    	if(err) {
@@ -132,9 +129,9 @@ router.post('/update/:id', function(req, res, next) {
     });
   });
 
-// Edit Delete
-router.post('/delete/:id', function(req, res, next) {
-  employee.delete(req, res);
+// Edit update status
+router.post('/inactive/:id', function(req, res, next) {
+  employee.inactive(req, res);
 });
 
 module.exports = router;
