@@ -28,6 +28,7 @@ router.post('/save', function(req, res, next) {
 
    	firstname: req.body.firstname,
    	lastname:req.body.lastname,
+    gender:req.body.gender,
    	address:req.body.address,
    	dateofbirth:req.body.dateofbirth,
    	office:req.body.office,

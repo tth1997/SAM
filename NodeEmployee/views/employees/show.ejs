@@ -21,7 +21,7 @@
 
 
 				<div class="logo">
-					<h1>SAM</h1>
+					<h2 class="simple-text">SAM</h2>
 				</div>
 				<ul class="nav">
 					<li>
@@ -90,6 +90,22 @@
 									</div>
 								</div>
 								<div class="row">
+
+									<div class="col-md-4">
+										<div class="form-group">
+											<label>Gender</label>
+
+											<input type="checkbox" id="GC1"
+											name="gender" value="Female">
+											<label>Female</label>
+
+											<input type="checkbox" 
+											name="gender" value="Male" id="GC2">
+											<label>Male</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
 									<div class="col-md-4">
 										<div class="form-group">
 											<label>Address</label>
@@ -149,8 +165,13 @@
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>Martial Status</label>
-													<input type="radio" name="maritalstatus" id="ms1" disabled />Married &nbsp;&nbsp;
-													<input type="radio" name="maritalstatus" id="ms2"  disabled />Unmarried
+													<div><input type="checkbox" id="MS1"
+														name="maritalstatus" value="Married">
+														<label>Married</label>
+														<input type="checkbox" id="MS2" 
+														name="maritalstatus" value="Unmarried">
+														<label>Unmarried</label>
+													</div>
 												</div>
 											</div>
 											<div class="col-md-4">
@@ -201,13 +222,45 @@
 						$(document).ready(function() {
 
 							$('#comment').val('<%= employee.comment %>');
-							
+
 							if('<%=employee.status%>'!= 'Active'){
-
+								
 								document.getElementById('btnInActive').innerHTML="Active";
-
+								
 								$('#edit12').addClass('disabled');
 							}
+
+							if('<%=employee.maritalstatus%>'!=null)
+							{
+
+								if('<%=employee.maritalstatus%>'=="Married")		   
+									document.getElementById('MS1').checked=true;
+								else if('<%=employee.maritalstatus%>'=="Unmarried")	
+									document.getElementById('MS2').checked=true;
+							}
+
+							if('<%=employee.gender%>'!=null)
+							{
+
+								if('<%=employee.gender%>'=="Female")		   
+									document.getElementById('GC1').checked=true;
+								else if('<%=employee.gender%>'=="Male")	
+									document.getElementById('GC2').checked=true;
+							}
+							
+							var dt1 = '<%= employee.dateofbirth %>';
+							d1 = new Date(dt1);
+							$('#dateofbirth').val($.datepicker.formatDate('yy-mm-dd', d1));
+
+							var dt2 = '<%= employee.dateofjoin %>';
+							d2 = new Date(dt2);
+							$('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
+
 						});
 
 					</script>
+					<script src="/javascripts/jquery.3.2.1.min.js" type="text/javascript"></script>
+					<script src="/javascripts/chartist.min.js"></script>
+					<script src="/javascripts/bootstrap-notify.js"></script>
+					<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
+					<script src="/javascripts/light-bootstrap-dashboard.js?v=1.4.0"></script>     

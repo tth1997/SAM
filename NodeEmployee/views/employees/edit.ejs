@@ -26,7 +26,7 @@
 		<div class="sidebar" data-color="blue">
 			<div class="sidebar-wrapper">
 				<div class="logo">
-					<h1>SAM</h1>
+					<h2 class="simple-text">SAM</h2>
 				</div>
 				<ul class="nav">
 					<li>
@@ -97,6 +97,22 @@
 											</div>
 										</div>
 										<div class="row">
+
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Gender</label>
+
+													<input type="checkbox" id="GC1"
+													name="gender" value="female" onclick="selectgender(this)" />
+													<label>Female</label>
+
+													<input type="checkbox" id="GC2"
+													name="gender" value="male" onclick="selectgender(this)" />
+													<label>Male</label>
+												</div>
+											</div>
+										</div>
+										<div class="row">
 											<div class="col-md-8">
 												<div class="form-group">
 													<label>Address</label>
@@ -115,7 +131,7 @@
 										<div class="row">
 											<div class="col-md-4">
 												<div class="form-group">
-													<label>DoB *</label>
+													<label>DoB</label>
 													<input type="date" class="form-control" readonly="readonly" name="dateofbirth" id="dateofbirth" value="<%= employee.dateofbirth %>">
 												</div>
 											</div>
@@ -169,9 +185,13 @@
 										<div class="row">
 											<div class="col-md-4">
 												<div class="form-group">
-													<label>Martial Status *</label>
-													<input type="radio" name="maritalstatus" id="ms1" />Married &nbsp;&nbsp;
-													<input type="radio" name="maritalstatus" id="ms2" />Unmarried
+													<div><input type="checkbox" id="MS1"
+														name="maritalstatus" value="Married" onclick="selectmaritalstatus(this)" />
+														<label>Married</label>
+														<input type="checkbox" id="MS2"
+														name="maritalstatus" value="Unmarried" onclick="selectmaritalstatus(this)" />
+														<label>Unmarried</label>
+													</div>
 												</div>
 											</div>
 											<div class="col-md-4">
@@ -218,6 +238,21 @@
 
 		<script type="text/javascript">
 
+			function selectgender(id){
+				var chkgender = document.getElementsByName("gender");
+				Array.prototype.forEach.call(chkgender,function(el){
+					el.checked = false;
+				});
+				id.checked = true;
+			}
+			function selectmaritalstatus(id){
+				var chkmaritalstatus = document.getElementsByName("maritalstatus");
+				Array.prototype.forEach.call(chkmaritalstatus,function(el){
+					el.checked = false;
+				});
+				id.checked = true;
+			}
+
 			$(document).ready(function() {
 				var dt1 = '<%= employee.dateofbirth %>';
 				d1 = new Date(dt1);
@@ -229,6 +264,23 @@
 				$('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
 
 				$('#comment').val('<%= employee.comment %>');
+				if('<%=employee.maritalstatus%>'!=null)
+				{
+
+					if('<%=employee.maritalstatus%>'=="Married")		   
+						document.getElementById('MS1').checked=true;
+					else if('<%=employee.maritalstatus%>'=="Unmarried")	
+						document.getElementById('MS2').checked=true;
+				}
+
+				if('<%=employee.gender%>'!=null)
+				{
+
+					if('<%=employee.gender%>'=="Female")		   
+						document.getElementById('GC1').checked=true;
+					else if('<%=employee.gender%>'=="Male")	
+						document.getElementById('GC2').checked=true;
+				}
 
 				$('#editemp').bootstrapValidator({
 					container: '#messages',
@@ -260,13 +312,6 @@
 							}
 						},
 						city: {
-							validators: {
-								notEmpty: {
-									message: ''
-								}
-							}
-						},
-						dateofjoin: {
 							validators: {
 								notEmpty: {
 									message: ''

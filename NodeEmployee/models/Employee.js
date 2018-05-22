@@ -4,6 +4,7 @@ var EmployeeSchema = new mongoose.Schema({
   employee_id: String,
   firstname: String,
   lastname: String,
+  gender: String,
   address: String,
   dateofbirth: Date,
   office: String,

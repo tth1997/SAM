@@ -13,7 +13,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
+    <link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="wrapper">
@@ -22,7 +31,7 @@
 
 
                 <div class="logo">
-                    <h1>SAM</h1>
+                    <h2 class="simple-text">SAM</h2>
                 </div>
                 <ul class="nav">
                     <li>
@@ -94,6 +103,22 @@
                                         </div>
                                     </div>
                                     <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Gender</label>
+
+                                                <input type="checkbox" id="GC1"
+                                                name="gender" value="female" onclick="selectgender(this)" />
+                                                <label>Female</label>
+
+                                                <input type="checkbox" id="GC2"
+                                                name="gender" value="male" onclick="selectgender(this)" />
+                                                <label>Male</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="address">Address</label>
@@ -132,7 +157,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="dateofbirth">DoB *</label>
+                                                <label for="dateofbirth">DoB </label>
                                                 <input type="date" class="form-control" name="dateofbirth" placeholder="Date of Birth">
                                             </div>
                                         </div>
@@ -164,27 +189,31 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="martialstatus">Martial Status *</label>
-                                                <input type="radio" name="martialstatus" value="married" > Married &nbsp;&nbsp; 
-                                                <input type="radio" name="martialstatus" value="unmarried" > Unmarried &nbsp;&nbsp; 
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="permitstatus">Permit Status *</label>
-                                                <input type="text" class="form-control" name="permitstatus" placeholder="Enter Permit Type">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <label for="comment">Comments</label>
-                                                <textarea class="form-control" name="comment" rows:"5" placeholder="Enter Description"></textarea>
-                                            </div>
+                                               <div><input type="checkbox" id="MS1"
+                                                 name="maritalstatus" value="Married" onclick="selectmaritalstatus(this)" />
+                                                 <label>Married</label>
+                                                 <input type="checkbox" id="MS2"
+                                                 name="maritalstatus" value="Unmarried" onclick="selectmaritalstatus(this)" />
+                                                 <label>Unmarried</label>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="permitstatus">Permit Status *</label>
+                                            <input type="text" class="form-control" name="permitstatus" placeholder="Enter Permit Type">
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="comment">Comments</label>
+                                            <textarea class="form-control" name="comment" rows:"5" placeholder="Enter Description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
                     <!-- <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -221,71 +250,71 @@
 </div>
 </div>
 
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script> -->
 </body>
 </html>
 
 <script type="text/javascript">
 
-    $(document).ready(function() {
-        $('#createemp').bootstrapValidator({
-            container: '#messages',
-            feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
+ function selectgender(id){
+  var chkgender = document.getElementsByName("gender");
+  Array.prototype.forEach.call(chkgender,function(el){
+    el.checked = false;
+});
+  id.checked = true;
+}
+function selectmaritalstatus(id){
+  var chkmaritalstatus = document.getElementsByName("maritalstatus");
+  Array.prototype.forEach.call(chkmaritalstatus,function(el){
+    el.checked = false;
+});
+  id.checked = true;
+}
+$(document).ready(function() {
+    $('#createemp').bootstrapValidator({
+        container: '#messages',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            firstname: {
+                validators: {
+                    notEmpty: {
+                        message: ''
+                    }
+                }
             },
-            fields: {
-                firstname: {
-                    validators: {
-                        notEmpty: {
-                            message: ''
-                        }
+            passportno: {
+                validators: {
+                    notEmpty: {
+                        message: ''
                     }
-                },
-                dateofbirth: {
-                    validators: {
-                        notEmpty: {
-                            message: ''
-                        }
+                }
+            },
+            country: {
+                validators: {
+                    notEmpty: {
+                        message: ''
                     }
-                },
-                passportno: {
-                    validators: {
-                        notEmpty: {
-                            message: ''
-                        }
+                }
+            },
+            city: {
+                validators: {
+                    notEmpty: {
+                        message: ''
                     }
-                },
-                country: {
-                    validators: {
-                        notEmpty: {
-                            message: ''
-                        }
-                    }
-                },
-                city: {
-                    validators: {
-                        notEmpty: {
-                            message: ''
-                        }
-                    }
-                },
-                permitstatus: {
-                    validators: {
-                        notEmpty: {
-                            message: ''
-                        }
+                }
+            },
+            permitstatus: {
+                validators: {
+                    notEmpty: {
+                        message: ''
                     }
                 }
             }
-        });
+        }
     });
+});
 
 </script>

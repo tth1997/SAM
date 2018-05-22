@@ -96,7 +96,7 @@ employeeController.inactive = function(req, res) {
         }
 	 
         else {
-          console.log("Client Inactive/Active!");
+          console.log("Employee Inactive/Active!");
           Employee.find({}).exec(function (err, employees) {
                   if (err) {
                    console.log("Error:", err);
