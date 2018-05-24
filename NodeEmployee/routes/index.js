@@ -10,8 +10,4 @@ router.get('/employee', function(req, res, next) {
   res.render('employee', { title: 'Express' });
 });
 
-router.get('/job', function(req, res, next) {
-  res.render('job', { title: 'Express' });
-});
-
 module.exports = router;

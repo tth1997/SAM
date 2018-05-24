@@ -7,11 +7,21 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	<meta name="viewport" content="width=device-width" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
-	<link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+	<link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- Animation library for notifications   -->
+	<link href="/stylesheets/animate.min.css" rel="stylesheet"/>
+	<link href="/stylesheets/main.css" rel="stylesheet" />
 	
 </head>
 <body>
@@ -21,7 +31,7 @@
 
 
 				<div class="logo">
-					<h2 class="simple-text">SAM</h2>
+					<h2>SAM</h2>
 				</div>
 				<ul class="nav">
 					<li>
@@ -96,11 +106,11 @@
 											<label>Gender</label>
 
 											<input type="checkbox" id="GC1"
-											name="gender" value="Female">
+											name="gender" disabled value="Female">
 											<label>Female</label>
 
 											<input type="checkbox" 
-											name="gender" value="Male" id="GC2">
+											name="gender" disabled value="Male" id="GC2">
 											<label>Male</label>
 										</div>
 									</div>
@@ -123,7 +133,7 @@
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>DoB *</label>
-													<input type="text" class="form-control" disabled value="<%= employee.dateofbirth %>">
+													<input type="date" class="form-control" id="dateofbirth" disabled value="<%= employee.dateofbirth %>">
 												</div>
 											</div>
 											<div class="col-md-4">
@@ -151,7 +161,7 @@
 											<div class="col-md-4">
 												<div class="form-group">
 													<label>Date of Joining</label>
-													<input type="text" class="form-control" disabled value="<%= employee.dateofjoin %>">
+													<input type="date" class="form-control" id="dateofjoin" disabled value="<%= employee.dateofjoin %>">
 												</div>
 											</div>
 											<div class="col-md-4">
@@ -166,10 +176,10 @@
 												<div class="form-group">
 													<label>Martial Status</label>
 													<div><input type="checkbox" id="MS1"
-														name="maritalstatus" value="Married">
+														name="maritalstatus" disabled value="Married">
 														<label>Married</label>
 														<input type="checkbox" id="MS2" 
-														name="maritalstatus" value="Unmarried">
+														name="maritalstatus" disabled value="Unmarried">
 														<label>Unmarried</label>
 													</div>
 												</div>
@@ -212,55 +222,65 @@
 									</div>
 								</div>
 							</div>
-						</div>
+							<div class="col-md-4" style="padding-left: 0px;  padding-right: 0px;">
+								<% if ( employee.photo != null ) { %>
+								<img src="<%= employee.photo %>" class="img-responsive">
+								<h4 class="title"><%= employee.firstname %> <%= employee.lastname %><br/>
+									<% }else { %>
+									<h4 class="title">Photo Not Uploaded<br/>
+										<% } %>
+									</div>
 
-					</body>
-					</html>
+								</div>
+							</div>
 
-					<script type="text/javascript">
+						</body>
+						</html>
 
-						$(document).ready(function() {
+						<script type="text/javascript">
 
-							$('#comment').val('<%= employee.comment %>');
+							$(document).ready(function() {
 
-							if('<%=employee.status%>'!= 'Active'){
-								
-								document.getElementById('btnInActive').innerHTML="Active";
-								
-								$('#edit12').addClass('disabled');
-							}
+								$('#comment').val('<%= employee.comment %>');
 
-							if('<%=employee.maritalstatus%>'!=null)
-							{
+								var dt1 = '<%= employee.dateofbirth %>';
+								d1 = new Date(dt1);
+								$('#dateofbirth').val($.datepicker.formatDate('yy-mm-dd', d1));
 
-								if('<%=employee.maritalstatus%>'=="Married")		   
-									document.getElementById('MS1').checked=true;
-								else if('<%=employee.maritalstatus%>'=="Unmarried")	
-									document.getElementById('MS2').checked=true;
-							}
+								var dt2 = '<%= employee.dateofjoin %>';
+								d2 = new Date(dt2);
+								$('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
 
-							if('<%=employee.gender%>'!=null)
-							{
+								if('<%=employee.status%>'!= 'Active'){
 
-								if('<%=employee.gender%>'=="Female")		   
-									document.getElementById('GC1').checked=true;
-								else if('<%=employee.gender%>'=="Male")	
-									document.getElementById('GC2').checked=true;
-							}
-							
-							var dt1 = '<%= employee.dateofbirth %>';
-							d1 = new Date(dt1);
-							$('#dateofbirth').val($.datepicker.formatDate('yy-mm-dd', d1));
+									document.getElementById('btnInActive').innerHTML="Active";
 
-							var dt2 = '<%= employee.dateofjoin %>';
-							d2 = new Date(dt2);
-							$('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
+									$('#edit12').addClass('disabled');
+								}
 
-						});
+								if('<%=employee.maritalstatus%>'!=null)
+								{
 
-					</script>
-					<script src="/javascripts/jquery.3.2.1.min.js" type="text/javascript"></script>
-					<script src="/javascripts/chartist.min.js"></script>
-					<script src="/javascripts/bootstrap-notify.js"></script>
-					<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
-					<script src="/javascripts/light-bootstrap-dashboard.js?v=1.4.0"></script>     
+									if('<%=employee.maritalstatus%>'=="Married")		   
+										document.getElementById('MS1').checked=true;
+									else if('<%=employee.maritalstatus%>'=="Unmarried")	
+										document.getElementById('MS2').checked=true;
+								}
+
+								if('<%=employee.gender%>'!=null)
+								{
+
+									if('<%=employee.gender%>'=="Female")		   
+										document.getElementById('GC1').checked=true;
+									else if('<%=employee.gender%>'=="Male")	
+										document.getElementById('GC2').checked=true;
+								}
+
+							});
+
+						</script>
+						<script src="/javascripts/jquery.3.2.1.min.js" type="text/javascript"></script>
+						<script src="/javascripts/chartist.min.js"></script>
+						<script src="/javascripts/bootstrap-notify.js"></script>
+						<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
+						<script src="/javascripts/light-bootstrap-dashboard.js?v=1.4.0"></script>   

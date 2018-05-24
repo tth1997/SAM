@@ -21,8 +21,6 @@ mongoose.connect('mongodb://localhost/shipping')
 var index = require('./routes/index');
 var users = require('./routes/users');
 var employees = require('./routes/employees');
-var jobs = require('./routes/jobs');
-var jobassignments = require('./routes/jobassignments');
 
 
 var app = express();
@@ -43,8 +41,6 @@ app.use('/', index);
 app.use('/dashboard',index);
 app.use('/users', users);
 app.use('/employees', employees);
-app.use('/jobs',jobs);
-app.use('/jobassignments',jobassignments);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

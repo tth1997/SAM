@@ -1,331 +1,371 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<link href="/images/favicon.ico" rel="shortcut icon" type="image/png">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-	<meta name="viewport" content="width=device-width" />
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
-	<link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
-	<link href="/stylesheets/main.css" rel="stylesheet" />
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-	
-	
+  <meta charset="utf-8" />
+  <link href="/images/favicon.ico" rel="shortcut icon" type="image/png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+  <link href="/stylesheets/main.css" rel="stylesheet" />
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  
+  
 </head>
 <body>
-	<div class="wrapper">
-		<div class="sidebar" data-color="blue">
-			<div class="sidebar-wrapper">
-				<div class="logo">
-					<h2 class="simple-text">SAM</h2>
-				</div>
-				<ul class="nav">
-					<li>
-						<a href="/dashboard">
-							<p>Dashboard</p>
-						</a>
-					</li>
+  <div class="wrapper">
+    <div class="sidebar" data-color="blue">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <h2>SAM</h2>
+        </div>
+        <ul class="nav">
+          <li>
+            <a href="/dashboard">
+              <p>Dashboard</p>
+            </a>
+          </li>
 
-					<li>
-						<a href="/user">
-							<p>User Profile</p>
-						</a>
-					</li>
+          <li>
+            <a href="/user">
+              <p>User Profile</p>
+            </a>
+          </li>
 
-					<li class="active">
-						<a href="/employees">
-							<p>Employee Master</p>
-						</a>
-					</li>
+          <li class="active">
+            <a href="/employees">
+              <p>Employee Master</p>
+            </a>
+          </li>
 
-					<li>
-						<a href="/vdranalysis">
-							<p>VDR Analysis</p>
-						</a>
-					</li>
-					<li>
-						<a href="/jobassignments">
-							<p>Job Assignment</p>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-	</div>
+          <li>
+            <a href="/vdranalysis">
+              <p>VDR Analysis</p>
+            </a>
+          </li>
+          <li>
+            <a href="/jobassignments">
+              <p>Job Assignment</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-	<div class="main-panel">
-		<nav class="navbar navbar-default navbar-fixed">
-			<div class="container-fluid">
-				<div  align="right">
-					<a href="">Account</a>
-					&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					<a href="#">Log out</a>
-				</div>
-			</div>
-		</nav>
+  <div class="main-panel">
+    <nav class="navbar navbar-default navbar-fixed">
+      <div class="container-fluid">
+        <div  align="right">
+          <a href="">Account</a>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <a href="#">Log out</a>
+        </div>
+      </div>
+    </nav>
 
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-8">
-					<div class="card">
-						<div class="header">
-							<h5><a href="/employees">Employee List</a></h5>
-							<h5>Edit Employee</h5>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="header">
+              <h5><a href="/employees">Employee List</a></h5>
+              <h5>Edit Employee</h5>
 
-						</div>
-						<div class="content">
-							<form id="editemp" action="/employees/update/<%= employee._id %>" method="post">
-								<div class="row">
-									<div class="col-md-4">
-										<div class="form-group">
-											<label>First Name *</label>
-											<input type="text" class="form-control" readonly="readonly" name="firstname" value="<%= employee.firstname %>"></div>
-										</div>
-										<div class="col-md-4">
-											<div class="form-group">
-												<label>Last Name</label>
-												<input type="text" class="form-control" name="lastname" value="<%= employee.lastname %>"></div>
-											</div>
-										</div>
-										<div class="row">
+            </div>
+            <div class="content">
+              <form id="editemp" action="/employees/update/<%= employee._id %>" method="post" enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>First Name *</label>
+                      <input type="text" class="form-control" readonly="readonly" name="firstname" value="<%= employee.firstname %>"></div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" name="lastname" value="<%= employee.lastname %>"></div>
+                      </div>
+                    </div>
+                    <div class="row">
 
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Gender</label>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Gender</label>
 
-													<input type="checkbox" id="GC1"
-													name="gender" value="female" onclick="selectgender(this)" />
-													<label>Female</label>
+                          <input type="checkbox" id="GC1"
+                          name="gender" value="female" onclick="selectgender(this)" />
+                          <label>Female</label>
 
-													<input type="checkbox" id="GC2"
-													name="gender" value="male" onclick="selectgender(this)" />
-													<label>Male</label>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-8">
-												<div class="form-group">
-													<label>Address</label>
-													<input type="text" class="form-control" placeholder="Home Address" name="address" value="<%= employee.address %>">
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-8">
-												<div class="form-group">
-													<label>Office Address</label>
-													<input type="text" class="form-control" placeholder="Office Address" name="office" value="<%= employee.office %>">
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>DoB</label>
-													<input type="date" class="form-control" readonly="readonly" name="dateofbirth" id="dateofbirth" value="<%= employee.dateofbirth %>">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Passport No. *</label>
-													<input type="text" class="form-control" placeholder="Passport Number" name="passportno" value="<%= employee.passportno %>">
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Country *</label>
-													<select class="form-control" name="country" id="country">
-														<option selected><%= employee.country %></option>
-														<option>Singapore</option>
-														<option>Malaysia</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>City *</label>
-													<select class="form-control" name="city" id="country">
-														<option selected><%= employee.city %></option>
-														<option>Singapore</option>
-														<option>Kula Lumpur</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Date of Joining *</label>
-													<input type="date" class="form-control" readonly="readonly" name="dateofjoin" id="dateofjoin" value="<%= employee.dateofjoin %>">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Nationality</label>
-													<select class="form-control" name="nationality" id="nationality">
-														<option selected><%= employee.nationality %></option>
-														<option>Singaporean</option>
-														<option>Malaysian</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<div><input type="checkbox" id="MS1"
-														name="maritalstatus" value="Married" onclick="selectmaritalstatus(this)" />
-														<label>Married</label>
-														<input type="checkbox" id="MS2"
-														name="maritalstatus" value="Unmarried" onclick="selectmaritalstatus(this)" />
-														<label>Unmarried</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Permit Status *</label>
-													<input type="text" class="form-control" placeholder="Permit Type" name="permitstatus" value="<%= employee.permitstatus %>">
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Comments</label>
-													<textarea rows="5" class="form-control" placeholder="Enter Description" name="comment" id="comment"></textarea>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Father Name</label>
-													<input type="text" class="form-control" name="fathername" value="<%= employee.fathername %>">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Mother Name</label>
-													<input type="text" class="form-control" name="mothername" value="<%= employee.mothername %>">
-												</div>
-											</div>
-										</div>
-										<button type="submit" class="btn btn-primary btn-fill pull-right">UPDATE</button>
-										<div class="clearfix"></div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+                          <input type="checkbox" id="GC2"
+                          name="gender" value="male" onclick="selectgender(this)" />
+                          <label>Male</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="form-group">
+                          <label>Address</label>
+                          <input type="text" class="form-control" placeholder="Home Address" name="address" value="<%= employee.address %>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="form-group">
+                          <label>Office Address</label>
+                          <input type="text" class="form-control" placeholder="Office Address" name="office" value="<%= employee.office %>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>DoB</label>
+                          <input type="date" class="form-control" readonly="readonly" name="dateofbirth" id="dateofbirth" value="<%= employee.dateofbirth %>">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Passport No. *</label>
+                          <input type="text" class="form-control" placeholder="Passport Number" name="passportno" value="<%= employee.passportno %>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Country *</label>
+                          <select class="form-control" name="country" id="country">
+                            <option selected><%= employee.country %></option>
+                            <option>Singapore</option>
+                            <option>Malaysia</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>City *</label>
+                          <select class="form-control" name="city" id="country">
+                            <option selected><%= employee.city %></option>
+                            <option>Singapore</option>
+                            <option>Kula Lumpur</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Date of Joining</label>
+                          <input type="date" class="form-control" readonly="readonly" name="dateofjoin" id="dateofjoin" value="<%= employee.dateofjoin %>">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Nationality</label>
+                          <select class="form-control" name="nationality" id="nationality">
+                            <option selected><%= employee.nationality %></option>
+                            <option>Singaporean</option>
+                            <option>Malaysian</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <div><input type="checkbox" id="MS1"
+                            name="maritalstatus" value="Married" onclick="selectmaritalstatus(this)" />
+                            <label>Married</label>
+                            <input type="checkbox" id="MS2"
+                            name="maritalstatus" value="Unmarried" onclick="selectmaritalstatus(this)" />
+                            <label>Unmarried</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Permit Status *</label>
+                          <input type="text" class="form-control" placeholder="Permit Type" name="permitstatus" value="<%= employee.permitstatus %>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <textarea rows="5" class="form-control" placeholder="Enter Description" name="comment" id="comment"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" >
+                      <div class="col-md-4">
+                       <div class="form-group">
+                         <label>Upload Photo of Employee</label>
+                         <input type="file" class="form-control-file" name="photo" id="photo" accept="image/jpg, image/JPG,image/JPEG, image/jpeg, image/PNG,image/png" onChange="load_image(this.id,this.value)"/>
 
-		</body>
-		</html>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Father Name</label>
+                        <input type="text" class="form-control" name="fathername" value="<%= employee.fathername %>">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Mother Name</label>
+                        <input type="text" class="form-control" name="mothername" value="<%= employee.mothername %>">
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-fill pull-right">UPDATE</button>
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<script type="text/javascript">
+  </body>
+  </html>
 
-			function selectgender(id){
-				var chkgender = document.getElementsByName("gender");
-				Array.prototype.forEach.call(chkgender,function(el){
-					el.checked = false;
-				});
-				id.checked = true;
-			}
-			function selectmaritalstatus(id){
-				var chkmaritalstatus = document.getElementsByName("maritalstatus");
-				Array.prototype.forEach.call(chkmaritalstatus,function(el){
-					el.checked = false;
-				});
-				id.checked = true;
-			}
+  <script type="text/javascript">
 
-			$(document).ready(function() {
-				var dt1 = '<%= employee.dateofbirth %>';
-				d1 = new Date(dt1);
-				
-				$('#dateofbirth').val($.datepicker.formatDate('yy-mm-dd', d1));
-				
-				var dt2 = '<%= employee.dateofjoin %>';
-				d2 = new Date(dt2);
-				$('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
+    function selectgender(id){
+      var chkgender = document.getElementsByName("gender");
+      Array.prototype.forEach.call(chkgender,function(el){
+        el.checked = false;
+      });
+      id.checked = true;
+    }
+    function selectmaritalstatus(id){
+      var chkmaritalstatus = document.getElementsByName("maritalstatus");
+      Array.prototype.forEach.call(chkmaritalstatus,function(el){
+        el.checked = false;
+      });
+      id.checked = true;
+    }
 
-				$('#comment').val('<%= employee.comment %>');
-				if('<%=employee.maritalstatus%>'!=null)
-				{
+    function load_image(id,ext)
+    {
+      if(validateExtension(ext) == false)
+      {
+        alert("Upload only JPEG, JPG or PNG format ");
+        document.getElementById("photo").value = "";
+        document.getElementById("file").focus();
+        return;
+      }
+    }
 
-					if('<%=employee.maritalstatus%>'=="Married")		   
-						document.getElementById('MS1').checked=true;
-					else if('<%=employee.maritalstatus%>'=="Unmarried")	
-						document.getElementById('MS2').checked=true;
-				}
+    function validateExtension(v)
+    {
+      var allowedExtensions = new Array("jpg","JPG","jpeg","JPEG","PNG","png");
+      for(var ct=0;ct<allowedExtensions.length;ct++)
+      {
+        sample = v.lastIndexOf(allowedExtensions[ct]);
+        if(sample != -1){return true;}
+      }
+      return false;
+    }
 
-				if('<%=employee.gender%>'!=null)
-				{
+    var uploadField = document.getElementById("photo");
 
-					if('<%=employee.gender%>'=="Female")		   
-						document.getElementById('GC1').checked=true;
-					else if('<%=employee.gender%>'=="Male")	
-						document.getElementById('GC2').checked=true;
-				}
+    uploadField.onchange = function() {
+      if(this.files[0].size > 2097152){
+       alert("File is too big!");
+       this.value = "";
+     };
+   };
 
-				$('#editemp').bootstrapValidator({
-					container: '#messages',
-					feedbackIcons: {
-						valid: 'glyphicon glyphicon-ok',
-						invalid: 'glyphicon glyphicon-remove',
-						validating: 'glyphicon glyphicon-refresh'
-					},
-					fields: {
-						firstname: {
-							validators: {
-								notEmpty: {
-									message: ''
-								}
-							}
-						},
-						passportno: {
-							validators: {
-								notEmpty: {
-									message: ''
-								}
-							}
-						},
-						country: {
-							validators: {
-								notEmpty: {
-									message: ''
-								}
-							}
-						},
-						city: {
-							validators: {
-								notEmpty: {
-									message: ''
-								}
-							}
-						},
-						permitstatus: {
-							validators: {
-								notEmpty: {
-									message: ''
-								}
-							}
-						}
-					}
-				});
-			});
-		</script>
+   $(document).ready(function() {
+    var dt1 = '<%= employee.dateofbirth %>';
+    d1 = new Date(dt1);
+
+    $('#dateofbirth').val($.datepicker.formatDate('yy-mm-dd', d1));
+
+    var dt2 = '<%= employee.dateofjoin %>';
+    d2 = new Date(dt2);
+    $('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
+
+    $('#comment').val('<%= employee.comment %>');
+    if('<%=employee.maritalstatus%>'!=null)
+    {
+
+      if('<%=employee.maritalstatus%>'=="Married")       
+        document.getElementById('MS1').checked=true;
+      else if('<%=employee.maritalstatus%>'=="Unmarried") 
+        document.getElementById('MS2').checked=true;
+    }
+
+    if('<%=employee.gender%>'!=null)
+    {
+
+      if('<%=employee.gender%>'=="Female")       
+        document.getElementById('GC1').checked=true;
+      else if('<%=employee.gender%>'=="Male") 
+        document.getElementById('GC2').checked=true;
+    }
+
+    $('#editemp').bootstrapValidator({
+      container: '#messages',
+      feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+      },
+      fields: {
+        firstname: {
+          validators: {
+            notEmpty: {
+              message: ''
+            }
+          }
+        },
+        passportno: {
+          validators: {
+            notEmpty: {
+              message: ''
+            }
+          }
+        },
+        country: {
+          validators: {
+            notEmpty: {
+              message: ''
+            }
+          }
+        },
+        city: {
+          validators: {
+            notEmpty: {
+              message: ''
+            }
+          }
+        },
+        permitstatus: {
+          validators: {
+            notEmpty: {
+              message: ''
+            }
+          }
+        }
+      }
+    });
+  });
+</script>

@@ -10,19 +10,19 @@
     <link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
     <link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
-     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="wrapper">
@@ -31,7 +31,7 @@
 
 
                 <div class="logo">
-                    <h2 class="simple-text">SAM</h2>
+                    <h2>SAM</h2>
                 </div>
                 <ul class="nav">
                     <li>
@@ -87,7 +87,7 @@
                                 <h5>Create Employee</h5> 
                             </div>
                             <div class="content">
-                                <form id="createemp" method="post" action="/employees/save"><!--  enctype="multipart/form-data"> -->
+                                <form id="createemp" method="post" action="/employees/save" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class= "form-group has-feedback">
@@ -189,64 +189,65 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                               <div><input type="checkbox" id="MS1"
-                                                 name="maritalstatus" value="Married" onclick="selectmaritalstatus(this)" />
-                                                 <label>Married</label>
-                                                 <input type="checkbox" id="MS2"
-                                                 name="maritalstatus" value="Unmarried" onclick="selectmaritalstatus(this)" />
-                                                 <label>Unmarried</label>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="permitstatus">Permit Status *</label>
-                                            <input type="text" class="form-control" name="permitstatus" placeholder="Enter Permit Type">
-                                        </div>
+                                            <label>Marital Status </label>
+                                             <div><input type="checkbox"
+                                               name="maritalstatus" value="Married" onclick="selectmaritalstatus(this)" />
+                                               <label>Married</label>
+                                               <input type="checkbox"
+                                               name="maritalstatus" value="Unmarried" onclick="selectmaritalstatus(this)" />
+                                               <label>Unmarried</label>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="permitstatus">Permit Status *</label>
+                                        <input type="text" class="form-control" name="permitstatus" placeholder="Enter Permit Type">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label for="comment">Comments</label>
-                                            <textarea class="form-control" name="comment" rows:"5" placeholder="Enter Description"></textarea>
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="comment">Comments</label>
+                                        <textarea class="form-control" name="comment" rows:"5" placeholder="Enter Description"></textarea>
                                     </div>
                                 </div>
-                    <!-- <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="photo">Upload Photo of Employee</label>
-                                <input type="file" class="form-control-file" name="photo" id="photo">
                             </div>
-                        </div>
-                    </div> -->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="fathername">Father Name</label>
-                                <input type="text" class="form-control" name="fathername">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="photo">Upload Photo of Employee</label>
+                                        <input type="file" class="form-control-file" name="photo" id="photo" accept=".jpg,.jpeg,.png" onchange="validateFileType(this)"/>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="mothername">Mother Name</label>
-                                <input type="text" class="form-control" name="mothername">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="fathername">Father Name</label>
+                                        <input type="text" class="form-control" name="fathername">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="mothername">Mother Name</label>
+                                        <input type="text" class="form-control" name="mothername">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+
+                            <button type="submit" class="btn btn-primary btn-fill pull-right">Submit</button>
+                            <div class="clearfix"></div>
+                        </form>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-fill pull-right">Submit</button>
-                    <div class="clearfix"></div>
-                </form>
+                </div>
+
             </div>
-
         </div>
-
     </div>
-</div>
-</div>
 </div>
 </div>
 
@@ -255,21 +256,43 @@
 
 <script type="text/javascript">
 
- function selectgender(id){
-  var chkgender = document.getElementsByName("gender");
-  Array.prototype.forEach.call(chkgender,function(el){
-    el.checked = false;
-});
-  id.checked = true;
-}
-function selectmaritalstatus(id){
-  var chkmaritalstatus = document.getElementsByName("maritalstatus");
-  Array.prototype.forEach.call(chkmaritalstatus,function(el){
-    el.checked = false;
-});
-  id.checked = true;
-}
-$(document).ready(function() {
+   function selectgender(id){
+      var chkgender = document.getElementsByName("gender");
+      Array.prototype.forEach.call(chkgender,function(el){
+        el.checked = false;
+    });
+      id.checked = true;
+  }
+  function selectmaritalstatus(id){
+      var chkmaritalstatus = document.getElementsByName("maritalstatus");
+      Array.prototype.forEach.call(chkmaritalstatus,function(el){
+        el.checked = false;
+    });
+      id.checked = true;
+  }
+
+  function validateFileType(){
+
+    var fileName = document.getElementById("photo").value;
+    var idxDot = fileName.lastIndexOf(".") + 1;
+    var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            alert("Only jpg/jpeg and png file formats are accepted!");
+        }   
+    }
+    
+    var uploadField = document.getElementById("photo");
+
+    uploadField.onchange = function() {
+        if(this.files[0].size > 2097152){
+            alert("File exceeds specefied size limit! (Max. 2.09 MB");
+         this.value = "";
+     };
+ };
+
+ $(document).ready(function() {
     $('#createemp').bootstrapValidator({
         container: '#messages',
         feedbackIcons: {
