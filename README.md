@@ -1,2 +1,2 @@
 # SAM
-SAM web application for Ship audititing.
+SAM web application for Ship audititing management.
