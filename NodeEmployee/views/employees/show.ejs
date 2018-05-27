@@ -239,15 +239,15 @@
 
 						<script type="text/javascript">
 
-							$(document).ready(function() {
+							jQuery(document).ready(function($) {
 
-								$('#comment').val('<%= employee.comment %>');
+								$('#comment').val('<%= employee.comment%>');
 
-								var dt1 = '<%= employee.dateofbirth %>';
+								var dt1 = '<%= employee.dateofbirth%>';
 								d1 = new Date(dt1);
 								$('#dateofbirth').val($.datepicker.formatDate('yy-mm-dd', d1));
 
-								var dt2 = '<%= employee.dateofjoin %>';
+								var dt2 = '<%= employee.dateofjoin%>';
 								d2 = new Date(dt2);
 								$('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
 
