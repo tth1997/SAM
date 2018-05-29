@@ -126,13 +126,6 @@
 <script>
 	$.noConflict();
 	jQuery( document ).ready(function( $ ) {
-		var dt1 = '<%= employees.dateofbirth %>';
-		d1 = new Date(dt1);
-		$('#dateofbirth').val($.datepicker.formatDate('yy-mm-dd', d1));
-
-		var dt2 = '<%= employees.dateofjoin %>';
-		d2 = new Date(dt2);
-		$('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
 
 		$('#empTable').DataTable();
 		$('tr').each(function(){
