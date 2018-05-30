@@ -5,7 +5,9 @@ var Jobs = require("../models/Job");
 var multer = require('multer');
 var fs = require('fs-extra')
 var filessystem = require('fs');
+var cache = require('memory-cache');
 var employeeController = {};
+var obj = {};
 
 // file upload destination folder
 var storage = multer.diskStorage({
@@ -32,7 +34,7 @@ employeeController.list = function(req, res) {
 		}
 		else {
 
-
+cache.put('myjsonobj', obj);
 			res.render("../views/employees/index", {employees: employees,country:country});
 		}
 	});
@@ -57,11 +59,14 @@ employeeController.show = function(req,res){
 //Create Employee
 employeeController.create = function(req,res){
 	var country = require ('countries-cities').getCountries();
-	res.render("../views/employees/create", {country: country});
+	var nationality = cache.get('objNat');
+	cache.put('myjsonobj', obj);
+	res.render("../views/employees/create", {country: country, nationality: nationality});
 }
 
 // Save employees
 employeeController.save = function(req,res) {
+	var obj=cache.get('myjsonobj');
 	var employee = new Employee({
 
 		firstname: req.body.firstname,
@@ -153,19 +158,22 @@ employee.save(function(err){
 // Edit an employee
 employeeController.edit = function(req, res) {
 	var country = require ('countries-cities').getCountries();
+	var nationality = cache.get('objNat');
+	cache.put('myjsonobj', obj);
 	Employee.findOne({_id: req.params.id}).exec(function (err, employee) {
 		console.log("Edit id", req.params.id);
 		if (err) {
 			console.log("Error:", err);
 		}
 		else {
-			res.render("../views/employees/edit", {employee: employee,country: country});
+			res.render("../views/employees/edit", {employee: employee,country: country,nationality: nationality});
 		}
 	});
 };
 
 // Update employee
 employeeController.update = function(req, res) {
+	var obj=cache.get('myjsonobj');
 
 	console.log('Update body',req.body);
 	Employee.findById(req.params.id, function(err, data) {  
@@ -212,16 +220,16 @@ data.save(function(err, data) {
 		return next(err);
 	}
 	else{
-	var country = require ('countries-cities').getCountries();
-	Employee.find({}).exec(function (err, employees) {
-		if (err) {
-			console.log("Error:", err);
-		}
-		else {
-			res.redirect("/employees");
-		}
-	});
-}
+		var country = require ('countries-cities').getCountries();
+		Employee.find({}).exec(function (err, employees) {
+			if (err) {
+				console.log("Error:", err);
+			}
+			else {
+				res.redirect("/employees");
+			}
+		});
+	}
 });
 });
 };

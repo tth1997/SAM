@@ -138,144 +138,145 @@
                                                 <label for="country">Country *</label>
                                                 <select class="form-control" name="country" id="country">
                                                   <option value=''>Select Country</li>
-                                                   <% for(var i=0; i < country.length; i++){ %>
-                                                   <option value='<%= country[i] %>'><%= country[i] %></li>
-                                                       <% } %>
-                                                   </select>
-                                               </div>
-                                           </div>
-                                           <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="city">City *</label>
-                                                <select class="form-control" name="city" id="city">
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="dateofbirth">DoB </label>
-                                                <input type="date" class="form-control" name="dateofbirth" placeholder="Date of Birth">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="passportno">Passport No. *</label>
-                                                <input type="text" class="form-control" name="passportno" placeholder="Passport Number">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="dateofjoin">Date of Joining</label>
-                                                <input type="date" class="form-control" name="dateofjoin" placeholder="Date of Joining">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="nationality">Nationality</label>
-                                                <select class="form-control" name="nationality" id="nationality">
-                                                    <option value=''>Select Nationality</option>
-                                                    <option>Singaporean</option>
-                                                    <option>Malaysian</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Marital Status </label>
-                                                <div><input type="checkbox"
-                                                 name="maritalstatus" value="Married" onclick="selectmaritalstatus(this)" />
-                                                 <label>Married</label>
-                                                 <input type="checkbox"
-                                                 name="maritalstatus" value="Unmarried" onclick="selectmaritalstatus(this)" />
-                                                 <label>Unmarried</label>
+                                                     <% for(var i=0; i < country.length; i++){ %>
+                                                     <option value='<%= country[i] %>'><%= country[i] %></li>
+                                                         <% } %>
+                                                     </select>
+                                                 </div>
                                              </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="permitstatus">Permit Status *</label>
-                                            <input type="text" class="form-control" name="permitstatus" placeholder="Enter Permit Type">
+                                             <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="city">City *</label>
+                                                    <select class="form-control" name="city" id="city">
+
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="dateofbirth">DoB </label>
+                                                    <input type="date" class="form-control" name="dateofbirth" placeholder="Date of Birth">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="passportno">Passport No. *</label>
+                                                    <input type="text" class="form-control" name="passportno" placeholder="Passport Number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="dateofjoin">Date of Joining</label>
+                                                    <input type="date" class="form-control" name="dateofjoin" placeholder="Date of Joining">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="nationality">Nationality</label>
+                                                    <select class="form-control" name="nationality" id="nationality">
+                                                       <option value=''>Select Nationality</li>
+                                                           <% for(var i=0; i < nationality.objNat.length; i++){ %>
+                                                           <option value='<%= nationality.objNat[i] %>'><%= nationality.objNat[i] %></li>
+                                                             <% } %>
+                                                         </select>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Marital Status </label>
+                                                        <div><input type="checkbox"
+                                                           name="maritalstatus" value="Married" onclick="selectmaritalstatus(this)" />
+                                                           <label>Married</label>
+                                                           <input type="checkbox"
+                                                           name="maritalstatus" value="Unmarried" onclick="selectmaritalstatus(this)" />
+                                                           <label>Unmarried</label>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                               <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="permitstatus">Permit Status *</label>
+                                                    <input type="text" class="form-control" name="permitstatus" placeholder="Enter Permit Type">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label for="comment">Comments</label>
+                                                    <textarea class="form-control" name="comment" rows:"5" placeholder="Enter Description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="photo">Upload Photo of Employee</label>
+                                                    <input type="file" class="form-control-file" name="photo" id="photo" accept=".jpg,.jpeg,.png" onchange="validateFileType(this)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="fathername">Father Name</label>
+                                                    <input type="text" class="form-control" name="fathername">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="mothername">Mother Name</label>
+                                                    <input type="text" class="form-control" name="mothername">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-fill pull-right">Submit</button>
+                                        <div class="clearfix"></div>
+                                    </form>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label for="comment">Comments</label>
-                                            <textarea class="form-control" name="comment" rows:"5" placeholder="Enter Description"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="photo">Upload Photo of Employee</label>
-                                            <input type="file" class="form-control-file" name="photo" id="photo" accept=".jpg,.jpeg,.png" onchange="validateFileType(this)"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="fathername">Father Name</label>
-                                            <input type="text" class="form-control" name="fathername">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="mothername">Mother Name</label>
-                                            <input type="text" class="form-control" name="mothername">
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
 
-                                <button type="submit" class="btn btn-primary btn-fill pull-right">Submit</button>
-                                <div class="clearfix"></div>
-                            </form>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-</body>
-</html>
+    </body>
+    </html>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
- function selectgender(id){
-  var chkgender = document.getElementsByName("gender");
-  Array.prototype.forEach.call(chkgender,function(el){
-    el.checked = false;
-});
-  id.checked = true;
-}
-function selectmaritalstatus(id){
-  var chkmaritalstatus = document.getElementsByName("maritalstatus");
-  Array.prototype.forEach.call(chkmaritalstatus,function(el){
-    el.checked = false;
-});
-  id.checked = true;
-}
+       function selectgender(id){
+          var chkgender = document.getElementsByName("gender");
+          Array.prototype.forEach.call(chkgender,function(el){
+            el.checked = false;
+        });
+          id.checked = true;
+      }
+      function selectmaritalstatus(id){
+          var chkmaritalstatus = document.getElementsByName("maritalstatus");
+          Array.prototype.forEach.call(chkmaritalstatus,function(el){
+            el.checked = false;
+        });
+          id.checked = true;
+      }
 
-function validateFileType(){
+      function validateFileType(){
 
-    var fileName = document.getElementById("photo").value;
-    var idxDot = fileName.lastIndexOf(".") + 1;
-    var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
-    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+        var fileName = document.getElementById("photo").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
             //TO DO
         }else{
             alert("Only jpg/jpeg and png file formats are accepted!");
@@ -320,12 +321,12 @@ function validateFileType(){
   }
   else
   {
-     $('#city').append($('<option>', {
-        value: '',
-        text: 'Select City'
-    }));
+   $('#city').append($('<option>', {
+    value: '',
+    text: 'Select City'
+}));
 
- }
+}
 
 
 }).change();

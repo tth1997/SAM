@@ -147,10 +147,14 @@
                         <div class="form-group">
                           <label>Country *</label>
                           <select class="form-control" name="country" id="country">
-                            <option value=''>Select Country</li>
+                           <% if(employee.country != ""){ %>
+                           <option selected value='<%= employee.country %>'><%= employee.country %></option>
+                           <% } %>
+                           <option value=''>Select Country</li>
                              <% for(var i=0; i < country.length; i++){ %>
+                             <% if(country[i] != employee.country){ %>
                              <option value='<%= country[i] %>'><%= country[i] %></li>
-                               <% } %>
+                               <% }} %>
                              </select>
                            </div>
                          </div>
@@ -174,14 +178,19 @@
                           <div class="form-group">
                             <label>Nationality</label>
                             <select class="form-control" name="nationality" id="nationality">
-                              <option selected><%= employee.nationality %></option>
-                              <option>Singaporean</option>
-                              <option>Malaysian</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
+                             <% if(employee.nationality != ""){ %>
+                             <option selected value='<%= employee.nationality %>'><%= employee.nationality %></option>
+                             <% } %>
+                             <option value=''>Select Nationality</li>
+                              <% for(var i=0; i < nationality.objNat.length; i++){ %>
+                              <% if(nationality.objNat[i] != employee.nationality){ %>
+                              <option value='<%= nationality.objNat[i] %>'><%= nationality.objNat[i] %></li>
+                               <% }} %>
+                             </select>
+                           </div>
+                         </div>
+                       </div>
+                       <div class="row">
                         <div class="col-md-4">
                           <div class="form-group">
                             <div><input type="checkbox" id="MS1"

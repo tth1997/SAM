@@ -10,7 +10,7 @@ var cache = require('memory-cache');
 var cacheManager = require('cache-manager');
 var memoryCache = cacheManager.caching({store: 'memory', max: 100, ttl: 10/*seconds*/});
 
-
+var objMasterNat = {};
 
 mongoose.Promise = global.Promise;
 
@@ -22,6 +22,20 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var employees = require('./routes/employees');
 
+var fsr = require('fs'), objNat;
+
+//Read File and send to the callback
+fsr.readFile('./public/jsondata/nationality.json', handleFile);
+
+//callback function
+function handleFile(err, data) {
+    if (err) throw err
+    objNat = JSON.parse(data)
+  
+    objMasterNat["objNat"] = objNat;
+  cache.put('objNat', objMasterNat);
+  
+}
 
 var app = express();
 
