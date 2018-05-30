@@ -147,225 +147,262 @@
                         <div class="form-group">
                           <label>Country *</label>
                           <select class="form-control" name="country" id="country">
-                            <option selected><%= employee.country %></option>
-                            <option>Singapore</option>
-                            <option>Malaysia</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>City *</label>
-                          <select class="form-control" name="city" id="country">
-                            <option selected><%= employee.city %></option>
-                            <option>Singapore</option>
-                            <option>Kula Lumpur</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>Date of Joining</label>
-                          <input type="date" class="form-control" readonly="readonly" name="dateofjoin" id="dateofjoin" value="<%= employee.dateofjoin %>">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>Nationality</label>
-                          <select class="form-control" name="nationality" id="nationality">
-                            <option selected><%= employee.nationality %></option>
-                            <option>Singaporean</option>
-                            <option>Malaysian</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <div><input type="checkbox" id="MS1"
-                            name="maritalstatus" value="Married" onclick="selectmaritalstatus(this)" />
-                            <label>Married</label>
-                            <input type="checkbox" id="MS2"
-                            name="maritalstatus" value="Unmarried" onclick="selectmaritalstatus(this)" />
-                            <label>Unmarried</label>
+                            <option value=''>Select Country</li>
+                             <% for(var i=0; i < country.length; i++){ %>
+                             <option value='<%= country[i] %>'><%= country[i] %></li>
+                               <% } %>
+                             </select>
+                           </div>
+                         </div>
+                         <div class="col-md-4">
+                          <div class="form-group">
+                            <label>City *</label>
+                            <select class="form-control" name="city" id="country">
+                              
+                            </select>
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>Permit Status *</label>
-                          <input type="text" class="form-control" placeholder="Permit Type" name="permitstatus" value="<%= employee.permitstatus %>">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Date of Joining</label>
+                            <input type="date" class="form-control" readonly="readonly" name="dateofjoin" id="dateofjoin" value="<%= employee.dateofjoin %>">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Nationality</label>
+                            <select class="form-control" name="nationality" id="nationality">
+                              <option selected><%= employee.nationality %></option>
+                              <option>Singaporean</option>
+                              <option>Malaysian</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>Comments</label>
-                          <textarea rows="5" class="form-control" placeholder="Enter Description" name="comment" id="comment"></textarea>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <div><input type="checkbox" id="MS1"
+                              name="maritalstatus" value="Married" onclick="selectmaritalstatus(this)" />
+                              <label>Married</label>
+                              <input type="checkbox" id="MS2"
+                              name="maritalstatus" value="Unmarried" onclick="selectmaritalstatus(this)" />
+                              <label>Unmarried</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Permit Status *</label>
+                            <input type="text" class="form-control" placeholder="Permit Type" name="permitstatus" value="<%= employee.permitstatus %>">
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="row" >
-                      <div class="col-md-4">
-                       <div class="form-group">
-                         <label>Upload Photo of Employee</label>
-                         <input type="file" class="form-control-file" name="photo" id="photo" accept="image/jpg, image/JPG,image/JPEG, image/jpeg, image/PNG,image/png" onChange="load_image(this.id,this.value)"/>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Comments</label>
+                            <textarea rows="5" class="form-control" placeholder="Enter Description" name="comment" id="comment"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row" >
+                        <div class="col-md-4">
+                         <div class="form-group">
+                           <label>Upload Photo of Employee</label>
+                           <input type="file" class="form-control-file" name="photo" id="photo" accept="image/jpg, image/JPG,image/JPEG, image/jpeg, image/PNG,image/png" onChange="load_image(this.id,this.value)"/>
 
+                         </div>
                        </div>
                      </div>
-                   </div>
-                   <div class="row">
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label>Father Name</label>
-                        <input type="text" class="form-control" name="fathername" value="<%= employee.fathername %>">
+                     <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Father Name</label>
+                          <input type="text" class="form-control" name="fathername" value="<%= employee.fathername %>">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Mother Name</label>
+                          <input type="text" class="form-control" name="mothername" value="<%= employee.mothername %>">
+                        </div>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label>Mother Name</label>
-                        <input type="text" class="form-control" name="mothername" value="<%= employee.mothername %>">
-                      </div>
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-fill pull-right">UPDATE</button>
-                  <div class="clearfix"></div>
-                </form>
+                    <button type="submit" class="btn btn-primary btn-fill pull-right">UPDATE</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-  </body>
-  </html>
+    </body>
+    </html>
 
-  <script type="text/javascript">
+    <script type="text/javascript">
 
-    function selectgender(id){
-      var chkgender = document.getElementsByName("gender");
-      Array.prototype.forEach.call(chkgender,function(el){
-        el.checked = false;
-      });
-      id.checked = true;
-    }
-    function selectmaritalstatus(id){
-      var chkmaritalstatus = document.getElementsByName("maritalstatus");
-      Array.prototype.forEach.call(chkmaritalstatus,function(el){
-        el.checked = false;
-      });
-      id.checked = true;
-    }
-
-    function load_image(id,ext)
-    {
-      if(validateExtension(ext) == false)
-      {
-        alert("Upload only JPEG, JPG or PNG format ");
-        document.getElementById("photo").value = "";
-        document.getElementById("file").focus();
-        return;
+      function selectgender(id){
+        var chkgender = document.getElementsByName("gender");
+        Array.prototype.forEach.call(chkgender,function(el){
+          el.checked = false;
+        });
+        id.checked = true;
       }
-    }
-
-    function validateExtension(v)
-    {
-      var allowedExtensions = new Array("jpg","JPG","jpeg","JPEG","PNG","png");
-      for(var ct=0;ct<allowedExtensions.length;ct++)
-      {
-        sample = v.lastIndexOf(allowedExtensions[ct]);
-        if(sample != -1){return true;}
+      function selectmaritalstatus(id){
+        var chkmaritalstatus = document.getElementsByName("maritalstatus");
+        Array.prototype.forEach.call(chkmaritalstatus,function(el){
+          el.checked = false;
+        });
+        id.checked = true;
       }
-      return false;
-    }
 
-    var uploadField = document.getElementById("photo");
+      function load_image(id,ext)
+      {
+        if(validateExtension(ext) == false)
+        {
+          alert("Upload only JPEG, JPG or PNG format ");
+          document.getElementById("photo").value = "";
+          document.getElementById("file").focus();
+          return;
+        }
+      }
 
-    uploadField.onchange = function() {
-      if(this.files[0].size > 2097152){
-       alert("File is too big!");
-       this.value = "";
+      function validateExtension(v)
+      {
+        var allowedExtensions = new Array("jpg","JPG","jpeg","JPEG","PNG","png");
+        for(var ct=0;ct<allowedExtensions.length;ct++)
+        {
+          sample = v.lastIndexOf(allowedExtensions[ct]);
+          if(sample != -1){return true;}
+        }
+        return false;
+      }
+
+      var uploadField = document.getElementById("photo");
+
+      uploadField.onchange = function() {
+        if(this.files[0].size > 2097152){
+         alert("File is too big!");
+         this.value = "";
+       };
      };
-   };
 
-   $(document).ready(function() {
-    var dt1 = '<%= employee.dateofbirth %>';
-    d1 = new Date(dt1);
+     $(document).ready(function() {
+      var dt1 = '<%= employee.dateofbirth %>';
+      d1 = new Date(dt1);
 
-    $('#dateofbirth').val($.datepicker.formatDate('yy-mm-dd', d1));
+      $('#dateofbirth').val($.datepicker.formatDate('yy-mm-dd', d1));
 
-    var dt2 = '<%= employee.dateofjoin %>';
-    d2 = new Date(dt2);
-    $('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
+      var dt2 = '<%= employee.dateofjoin %>';
+      d2 = new Date(dt2);
+      $('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
 
-    $('#comment').val('<%= employee.comment %>');
-    if('<%=employee.maritalstatus%>'!=null)
-    {
+      $('#comment').val('<%= employee.comment %>');
+      if('<%=employee.maritalstatus%>'!=null)
+      {
 
-      if('<%=employee.maritalstatus%>'=="Married")       
-        document.getElementById('MS1').checked=true;
-      else if('<%=employee.maritalstatus%>'=="Unmarried") 
-        document.getElementById('MS2').checked=true;
+        if('<%=employee.maritalstatus%>'=="Married")       
+          document.getElementById('MS1').checked=true;
+        else if('<%=employee.maritalstatus%>'=="Unmarried") 
+          document.getElementById('MS2').checked=true;
+      }
+
+      if('<%=employee.gender%>'!=null)
+      {
+
+        if('<%=employee.gender%>'=="Female")       
+          document.getElementById('GC1').checked=true;
+        else if('<%=employee.gender%>'=="Male") 
+          document.getElementById('GC2').checked=true;
+      }
+
+      $country = $('#country');
+      $city = $('#city');
+
+      $country.change(function() {
+
+    $city.html(''); // Clear existing options in second dropdown
+
+
+    var country_name = document.getElementById("country").value;
+    if(country_name != ''){
+
+      $.ajax({
+        method: "GET",
+        url: "/employees/returncity",
+        data: { country_name: country_name },
+        dataType: "json",
+      }).done(function( data ) {
+        var result = data;
+
+        $.each(result, function (data) {
+          var appenddata = "<option value = '" + result[data] + " '>" + result[data] + " </option>";
+          $('#city').html($('#city').html() + appenddata);
+        });
+        sortSelect(document.getElementById("city"), 'text', 'asc'); 
+      });
     }
-
-    if('<%=employee.gender%>'!=null)
+    else
     {
+     $('#city').append($('<option>', {
+      value: '',
+      text: 'Select City'
+    }));
 
-      if('<%=employee.gender%>'=="Female")       
-        document.getElementById('GC1').checked=true;
-      else if('<%=employee.gender%>'=="Male") 
-        document.getElementById('GC2').checked=true;
-    }
+   }
 
-    $('#editemp').bootstrapValidator({
-      container: '#messages',
-      feedbackIcons: {
-        valid: 'glyphicon glyphicon-ok',
-        invalid: 'glyphicon glyphicon-remove',
-        validating: 'glyphicon glyphicon-refresh'
-      },
-      fields: {
-        firstname: {
-          validators: {
-            notEmpty: {
-              message: ''
-            }
-          }
+
+ }).change();
+
+      $('#editemp').bootstrapValidator({
+        container: '#messages',
+        feedbackIcons: {
+          valid: 'glyphicon glyphicon-ok',
+          invalid: 'glyphicon glyphicon-remove',
+          validating: 'glyphicon glyphicon-refresh'
         },
-        passportno: {
-          validators: {
-            notEmpty: {
-              message: ''
+        fields: {
+          firstname: {
+            validators: {
+              notEmpty: {
+                message: ''
+              }
             }
-          }
-        },
-        country: {
-          validators: {
-            notEmpty: {
-              message: ''
+          },
+          passportno: {
+            validators: {
+              notEmpty: {
+                message: ''
+              }
             }
-          }
-        },
-        city: {
-          validators: {
-            notEmpty: {
-              message: ''
+          },
+          country: {
+            validators: {
+              notEmpty: {
+                message: ''
+              }
             }
-          }
-        },
-        permitstatus: {
-          validators: {
-            notEmpty: {
-              message: ''
+          },
+          city: {
+            validators: {
+              notEmpty: {
+                message: ''
+              }
+            }
+          },
+          permitstatus: {
+            validators: {
+              notEmpty: {
+                message: ''
+              }
             }
           }
         }
-      }
+      });
     });
-  });
-</script>
+  </script>

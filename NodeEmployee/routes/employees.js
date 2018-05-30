@@ -61,4 +61,14 @@ router.post('/inactive/:id', function(req, res, next) {
   employee.inactive(req, res);
 });
 
+// Returns city from country-city library
+router.get('/returncity', function(req, res, next) {
+   var country_name = req.query.country_name;
+   
+   var cities = require ('countries-cities').getCities(country_name); 
+   
+   res.send(cities);
+   
+});
+
 module.exports = router;
