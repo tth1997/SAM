@@ -13,4 +13,4 @@ By Default, localhost is used.
 5. Make sure you have installed Node.js. After you've installed Node.js, open the cloned repository's directory in command line and enter ```npm install```
 to install all dependencies in the project.
 6. Afterwards, enter ```npm start``` to run the project.
-7. Open your web browser and go to [localhost:300](localhost:3000). This where you will run the application. Alternatively, you can change the ports by adding an extra line in app.js specifying your port number.
+7. Open your web browser and go to (localhost:3000). This where you will run the application. Alternatively, you can change the ports by adding an extra line in app.js specifying your port number.
