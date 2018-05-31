@@ -20,7 +20,7 @@ var EmployeeSchema = new mongoose.Schema({
   fathername: String,
   mothername: String,
   status: String,
-  updated_at: { type: Date, default: Date.now }
+  created_at: { type: Date, default: Date.now }
   
 });
 
