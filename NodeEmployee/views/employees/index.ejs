@@ -9,13 +9,22 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+	<link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- Libray to use Data Tables -->
 	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
 	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
 	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
+	<!-- Animation Library for Pop-ups -->
+	<link href="/stylesheets/animate.min.css" rel="stylesheet"/>
+	<link href="/stylesheets/main.css" rel="stylesheet" />	
+	
 </head>
 <body>
 
@@ -33,12 +42,6 @@
 							<p>Dashboard</p>
 						</a>
 					</li>
-
-					<li>
-						<a href="/user">
-							<p>User Profile</p>
-						</a>
-					</li>
 					
 					<li class="active">
 						<a href="/employees">
@@ -47,13 +50,23 @@
 					</li>
 					
 					<li>
-						<a href="/vdranalysis">
-							<p>VDR Analysis</p>
+						<a href="/vdranalysiss">
+							<p>VDR Job Tracker</p>
 						</a>
 					</li>
 					<li>
 						<a href="/jobassignments">
-							<p>Job Assignment</p>
+							<p>Vessel Job Tracker</p>
+						</a>
+					</li>
+					<li>
+						<a href="/clients">
+							<p>Client Details</p>
+						</a>
+					</li>
+					<li>
+						<a href="/observationanalysis">
+							<p>Observation Analysis</p>
 						</a>
 					</li>
 				</ul>
@@ -71,76 +84,312 @@
 				</div>
 			</nav>
 
-			<div class="content">
-				<div class="col-md-12">
-					<div class="card">
-						<div class="header">
-							<h5><a href="/employees/create">Create Employee</a></h5>
-							<h5>Employee Table</h5>
-						</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="header">
+								<h5><a href="/employees/create">Create Employee</a></h5>
+								<h5>Employee Table</h5>
+							</div>
 
-						<div class="content table-responsive table-full-width">
-							<% if(employees.length>0) { %> 
-							<table id="empTable" class="table table-striped">
-								<thead>
-									<tr>
-										<th>Employee code</th>
-										<th>FirstName</th>
-										<th>LastName</th>
-										<th>DOB</th>
-										<th>PassportNo</th>
-										<th>Nationality</th>
-										<th>Permit Status</th>
-										<th>Office</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<% for(var i=0; i<employees.length;i++) { %>
-									<tr>
-										<td><a href="/employees/show/<%= employees[i]._id%>"><%= employees[i].employee_id %></a></td>
-										<td><%= employees[i].firstname%></td>
-										<td><%= employees[i].lastname%></td>
-										<td><%= employees[i].dateofbirth%></td>
-										<td><%= employees[i].passportno%></td>
-										<td><%= employees[i].nationality%></td>
-										<td><%= employees[i].permitstatus%></td>
-										<td><%= employees[i].office%></td>
-										<td><%= employees[i].status%></td>
-									</tr>
-									<% } %>
-								</tbody>
-							</table>
-							<% } else { %>
-							<div class="container-fluid"><h5><b>No records found.</b></h5></div>
-							<% } %>
+							<div class="content table-responsive table-full-width">
+								<% if(employees.length>0) { %> 
+								<table id="empTable" class="table table-striped">
+									<thead>
+										<tr>
+											<th>Add Information</th>
+											<th>Employee code</th>
+											<th>FirstName</th>
+											<th>LastName</th>
+											<th>DOB</th>
+											<th>PassportNo</th>
+											<th>Nationality</th>
+											<th>Permit Status</th>
+											<th>Office</th>
+											<th>Status</th>
+										</tr>
+									</thead>
+									<tbody>
+										<% for(var i=0; i<employees.length;i++) { %>
+										<tr>
+											<td><a data-toggle="modal" href="#docModal" class="pull-left"><img src='/images/adddocs.png' title="Add Documents" align="left" hspace="5" onclick="callDocemp('<%= employees[i].employee_id%>');"/></a>
+											</td>
+											<td><a href="/employees/show/<%= employees[i]._id%>"><%= employees[i].employee_id %></a></td>
+											<td><%= employees[i].firstname%></td>
+											<td><%= employees[i].lastname%></td>
+											<td><%= employees[i].dateofbirth%></td>
+											<td><%= employees[i].passportno%></td>
+											<td><%= employees[i].nationality%></td>
+											<td><%= employees[i].permitstatus%></td>
+											<td><%= employees[i].office%></td>
+											<td><%= employees[i].status%></td>
+										</tr>
+										<% } %>
+									</tbody>
+								</table>
+								<% } else { %>
+								<div class="container-fluid"><h5><b>No records found.</b></h5></div>
+								<% } %>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal fade" id="docModal" tabindex="-1" role="dialog" aria-labelledby="docModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content" >
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="docModalLabel">Documents Upload</h4>
+							</div>
+							<div class="modal-body" style="height: 700px;overflow-y: auto;">
+								<form id ="docemp" enctype="multipart/form-data" method="post" >
+									<input id="id1" type="hidden" name="id1" value=""/>
+									<input id="id4" type="hidden" name="id4" value=""/>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="card">
+
+												<div class="container">
+													<div class="content">
+
+
+														<div class="row">
+															<div class="col-md-2">
+																<div class="form-group">
+																	<label>Type of Documents *</label>
+																	<select name="documenttype" class="form-control" id="documenttype" required>
+																		<% for(var i=0; i < documenttype.length; i++){ %>
+																		<option value='<%= documenttype[i]._id %>'><%= documenttype[i].name %></li>
+																			<% } %>
+																		</select>
+																	</div>
+																</div>
+																<div class="col-md-2">
+																	<div class="form-group">
+																		<label>Copy of Document</label>
+																		<input type="file" class="form-control-file" name="files[]" id ="cdoc" multiple/>
+
+
+																	</div>
+																</div>
+
+															</div>
+															<font color='red'> <DIV id="une1"> </DIV> </font>
+															<div class="row" >
+																<div class="col-md-2">
+																	<input id="subbtn3" type="button" class="btn btn-primary btn-fill pull-left" value ="Add Docs"/>					             
+																</div>
+
+															</div>
+															<div class="clearfix"></div>
+
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-md-12">
+												<div class="card">
+													<div class="content table-responsive table-full-width">
+
+														<table class="table table-hover table-striped" id="tab2">
+															<thead>
+																<tr>
+																	<th>Type Of Document</th>
+																	<th>Name</th>
+																	<th>Action</th>
+																</tr>
+															</thead>
+
+														</table>
+
+													</div>							   
+												</div>
+											</div>
+										</div>
+									</div>
+								</form> 
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</body>
-</html>
+	</body>
+	</html>
 
-<script>
-	$.noConflict();
-	jQuery( document ).ready(function( $ ) {
-
-		$('#empTable').DataTable();
-		$('tr').each(function(){
-			if($(this).find('td:last').text().trim() === "Active"){
-
-
-
-				$(this).css('background','rgb(164, 211, 238)');
+	<script>
+		function validatedoc(){
+			if(document.getElementById("cdoc").files.length == 0)
+			{
+				document.getElementById('une1').innerHTML = "Please upload file(s)";
+				document.getElementById("cdoc").focus();
+				return(false);
 			}
-			if($(this).find('td:last').text().trim() === "Inactive"){
+			return true;
+		}
 
-				$(this).css('background','rgb(104, 131, 139)');
-			}
+		function callDocemp(employee_id){
+			document.getElementById("id1").value = employee_id;
+			document.getElementById('une1').innerHTML = ""; 
+			$('#cdoc').val(''); 
+			document.getElementById("documenttype").selectedIndex = 0;	
+			sortSelect(document.getElementById("documenttype"), 'text', 'asc'); 
+
+			$.ajax(
+			{
+				type: "GET",
+				url: "/employees/returndocemp",
+				data: { employee_id: document.getElementById("id1").value },
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				cache: false,
+				success: function (datadoc) {
 
 
-		});
+					successdoctbl(datadoc);
+
+				},
+				error: function (msg) {
+
+
+				}
+			});
+		}
+		$("#subbtn3").click(function (event) {
+			if(validatedoc()){  
+
+				event.preventDefault();
+        // Get form
+        var form = $('#docemp')[0];
+		// Create an FormData object
+		var data = new FormData(form);
+		
+		// disabled the submit button
+
+		$.ajax({
+			type: "POST",
+			enctype: 'multipart/form-data',
+			url: "/employees/adddocemp",
+			data: data,
+			processData: false,
+			contentType: false,
+			cache: false,
+			timeout: 600000,
+			success: function (datadoc) {
+
+				successdoctbl(datadoc);
+
+
+			},
+			error: function (e) {
+                //$("#result").text(e.responseText);
+                console.log("ERROR : ", e);
+                
+            }
+        });
+
+
+		document.getElementById('une1').innerHTML = ""; 
+		$('#cdoc').val(''); 
+		document.getElementById("documenttype").selectedIndex = 0;		  
+
+	}
+
+});
+
+		function successdoctbl(datadoc){
+			var trHTML = '';
+			var tb = document.getElementById('tab2');
+			while(tb.rows.length > 1) {
+				tb.deleteRow(1);
+			}  
+
+
+			for(var i=0; i<datadoc.length;i++) { 
+				var item = datadoc[i];
+				var trHTML;
+				document.getElementById("id4").value = item._id;
+				trHTML +="<tr>";
+				trHTML +="<td>" + item.documentype + "</td>";
+				if(item.filename != ""){
+					trHTML +='<td><a href=' + item.filepath + ' target ="_blank">' + item.filename + '</a></td>';
+				}
+				else{trHTML += "<td></td>";}
+				trHTML +="<td>";
+				trHTML +='&nbsp;&nbsp; <a class ="btndocdelete"><img src="/images/delete.png"></a><input type="hidden" class="docitemid" value="'+ item._id +'"/></td>';
+			}  
+			
+			$('#tab2').append(trHTML);
+			$('.btndocdelete').on('click', function () {
+				var check = confirm('Are you sure want to inactive this record?');
+				if (check == true) {
+					var docitemid = $(this).parent().find('.docitemid').val();
+					$.ajax({
+						type: "GET",
+						url: "/employees/inactivedoc/" + docitemid,
+						data: {},
+						processData: false,
+						contentType: false,
+						cache: false,
+						timeout: 600000,
+						success: function (datadoc) {
+							successdoctbl(datadoc);
+
+						},
+						error: function (e) {
+
+						}
+					});
+
+				}
+				else{
+					return false;
+				}
+			});
+		}
+
+		var sortSelect = function (select, attr, order) {
+			if(attr === 'text'){
+				if(order === 'asc'){
+					$(select).html($(select).children('option').sort(function (x, y) {
+						return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+					}));
+					$(select).get(0).selectedIndex = 0;
+
+        }// end asc
+        if(order === 'desc'){
+        	$(select).html($(select).children('option').sort(function (y, x) {
+        		return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+        	}));
+        	$(select).get(0).selectedIndex = 0;
+        	e.preventDefault();
+        }// end desc
+    }
+
+};
+$.noConflict();
+jQuery( document ).ready(function( $ ) {
+
+	$('#empTable').DataTable();
+	$('tr').each(function(){
+		if($(this).find('td:last').text().trim() === "Active"){
+
+
+
+			$(this).css('background','rgb(164, 211, 238)');
+		}
+		if($(this).find('td:last').text().trim() === "Inactive"){
+
+			$(this).css('background','rgb(104, 131, 139)');
+		}
+
+
 	});
+});
 </script>

@@ -20,4 +20,4 @@ var JobAssignmentSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('JobAssgnment', JobAssignmentSchema);
+module.exports = mongoose.model('JobAssignment', JobAssignmentSchema);

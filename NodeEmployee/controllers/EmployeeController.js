@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 var Employee = require("../models/Employee");
 var Country=require("../models/Country");
 var Jobs = require("../models/Job");
+var DocumentType = require("../models/DocumentType");
 var multer = require('multer');
 var fs = require('fs-extra')
 var filessystem = require('fs');
@@ -32,13 +33,18 @@ employeeController.list = function(req, res) {
 		if (err) {
 			console.log("Error:", err);
 		}
-		else {
-
-cache.put('myjsonobj', obj);
-			res.render("../views/employees/index", {employees: employees,country:country});
-		}
+		DocumentType.find({}).exec(function(err, documenttype){
+			if(err){
+				console.log("Error:",err);
+			}
+			else {
+				obj['documenttype'] = documenttype;
+				cache.put('myjsonobj', obj);
+				res.render("../views/employees/index", {employees: employees,country:country,documenttype:documenttype});
+			}
+		});
 	});
-};
+}
 
 //Show employee by id
 employeeController.show = function(req,res){
@@ -60,8 +66,14 @@ employeeController.show = function(req,res){
 employeeController.create = function(req,res){
 	var country = require ('countries-cities').getCountries();
 	var nationality = cache.get('objNat');
-	cache.put('myjsonobj', obj);
-	res.render("../views/employees/create", {country: country, nationality: nationality});
+	DocumentType.find({}).exec(function(err, documenttype){
+		if(err){
+			console.log("Error:",err);
+		}
+		obj['documenttype'] = documenttype;
+		cache.put('myjsonobj', obj);
+		res.render("../views/employees/create", {country: country, nationality: nationality, documenttype:documenttype});
+	});
 }
 
 // Save employees
@@ -145,15 +157,19 @@ employee.save(function(err){
 			if (err) {
 				console.log("Error:", err);
 			}
-			else {
-				res.redirect("/employees");
-			}
+			DocumentType.find({}).exec(function(err, documenttype){
+				if(err){
+					console.log("Error:",err);
+				}
+				else {
+					res.redirect("/employees");
+				}
+			});
 		});
 	}
-
 });
 });
-};
+}
 
 // Edit an employee
 employeeController.edit = function(req, res) {
@@ -225,9 +241,14 @@ data.save(function(err, data) {
 			if (err) {
 				console.log("Error:", err);
 			}
-			else {
-				res.redirect("/employees");
-			}
+			DocumentType.find({}).exec(function(err, documenttype){
+				if(err){
+					console.log("Error:",err);
+				}
+				else {
+					res.redirect("/employees");
+				}
+			});
 		});
 	}
 });
