@@ -103,7 +103,7 @@ employeeController.save = function(req,res) {
 	{
 		employee.dateofbirth = employee.dateofbirth.toLocaleDateString("en-GB");
 	}
-	if(employee.dateofjoining != null)
+	if(employee.dateofjoin != null)
 	{
 		employee.dateofjoin = employee.dateofjoin.toLocaleDateString("en-GB");
 	}

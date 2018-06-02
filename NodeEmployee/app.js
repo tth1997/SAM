@@ -21,6 +21,11 @@ mongoose.connect('mongodb://localhost/shipping')
 var index = require('./routes/index');
 var users = require('./routes/users');
 var employees = require('./routes/employees');
+var jobs = require('./routes/jobs');
+var jobassignments = require('./routes/jobassignments');
+var clients = require('./routes/clients');
+var vdranalysiss = require('./routes/vdranalysiss');
+var observationanalysis = require('./routes/observationanalysis');
 
 var fsr = require('fs'), objNat;
 
@@ -55,6 +60,11 @@ app.use('/', index);
 app.use('/dashboard',index);
 app.use('/users', users);
 app.use('/employees', employees);
+app.use('/jobs',jobs);
+app.use('/jobassignments',jobassignments);
+app.use('/clients',clients);
+app.use('/vdranalysiss',vdranalysiss);
+app.use('/observationanalysis',observationanalysis);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
