@@ -8,8 +8,8 @@ var JobSchema = new mongoose.Schema({
           required: true,
           auto: true,
         },
-  jobtype: String,
   jobcategory: String,
+  jobtype: String,
   jobdescription: String,
   updated_at: { type: Date, default: Date.now }
   

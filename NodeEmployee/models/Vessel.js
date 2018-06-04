@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var VesselSchema = new mongoose.Schema({
+	
 	name: String
 });
 

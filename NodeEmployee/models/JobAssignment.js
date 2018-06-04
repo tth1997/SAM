@@ -2,22 +2,34 @@ var mongoose = require('mongoose');
 
 
 var JobAssignmentSchema = new mongoose.Schema({
-  job_Assignid:{
-          type: mongoose.Schema.Types.ObjectId,
-          index: true,
-          required: true,
-          auto: true,
-        },
-  employeename: String,
-  jobtype: String,
-  vessel: String,
+  job_Assignid: String,
+  company_id: String,
   company: String,
-  assigneddate: String,
-  traveldate: String,
+  vessel_id: String,
+  vessel: String,
+  job_catid: String,
+  jobcategory: String,
+  job_typeid: String,
+  jobtype: String,
+  employee_id: String,		
+  employeename: String,
+  travelfromdate: Date,
+  traveltodate: Date,
+  vesselschedule: String,
+  destf_id: String,
   destfrom: String,
-  destto: String
-  
+  destt_id: String,
+  destto: String,
+  airdestfrom: String,
+  airdestto: String,
+  status: String,
+  dtdmb: Date,
+  dtcomp: Date,
+  dtdue: Date,
+  dtdeliver: Date,
+  remarks: String,
+  inserted_at: { type: Date, default: Date.now }
 });
 
 
-module.exports = mongoose.model('JobAssignment', JobAssignmentSchema);
+module.exports = mongoose.model('JobAssignment', JobAssignmentSchema,'jobassignments');
