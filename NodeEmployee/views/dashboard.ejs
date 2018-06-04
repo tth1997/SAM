@@ -8,34 +8,51 @@
     <meta name="viewport" content="width=device-width" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
     <link href="/stylesheets/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
+	
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="/stylesheets/animate.min.css" rel="stylesheet"/>
+    <link href="/stylesheets/main.css" rel="stylesheet" />
+    <!--  Light Bootstrap Table core CSS    -->
+<style>
+    .chart{
+        text-align: center;
+        margin-left: 10%;
+        margin-top: 30%;
+    }
+</style>    
+
 </head>
 <body>
     <div class="wrapper">
-        <div class="sidebar" data-color="blue">
-            <div class="sidebar-wrapper">
+        <div class="sidebar" data-image/image/sidebar-5.jpg>
+		      <div class="sidebar-wrapper">
+		
 
-
-                <div class="logo">
-                <h2>SAM</h2>
-                </a>
-            </div>
-            <ul class="nav">
+                    <div class="logo">
+                        <a target="_blank" href="http://www.safe-lanes.com" class="simple-text">
+                             <img src="/images/SafeLanes_logo.png" class="imgclass" />
+                        </a>
+                    </div>
+                    <ul class="nav">
                         <li class="active">
                             <a href="/dashboard">
                                <p>Dashboard</p>
                             </a>
                         </li>
-                       
-                        <li>
+                        
+					   						
+						<li>
                             <a href="/employees">
                                <p>Employee Master</p>
                             </a>
                         </li>
-                        
+						
                         <li>
                             <a href="/vdranalysiss">
                                 <p>VDR Job Tracker</p>
@@ -46,47 +63,306 @@
                                <p>Vessel Job Tracker</p>
                             </a>
                         </li>
-                        <li>
+						<li>
                             <a href="/clients">
                                <p>Client Details</p>
                             </a>
                         </li>
-                        <li>
+						<li>
                             <a href="/observationanalysis">
                                <p>Observation Analysis</p>
                             </a>
                         </li>
-</ul>
-</div>
-</nav>
-</div>
-
-<div class="main-panel">
-    <nav class="navbar navbar-default navbar-fixed">
-        <div class="container-fluid">
-            <div  align="right">
-             <a href="">Account</a>
-             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-             <a href="#">Log out</a>
-         </div>
-     </div>
- </nav>
-
- <div class="container-fluid">
-  <img src="/images/DashboardShip.png" width="304" height="236" />
-</div>
-</div>
-</div>
+                    </ul>
+                </div>
+        </div>
+        
+    <div class="main-panel" data-color="orange" >
+        <nav class="navbar navbar-default navbar-fixed" >
+            <div class="container-fluid">
+	    <!--added new -->
+	    	<div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+	   <!--added new -->
+                <div  align="right">
+                   <a href="">Account</a>
+                   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                   <a href="#">Log out</a>
+                </div>
+            </div>
+		</nav>
+		
+        <div class="content">
+            <div class="container-fluid">
+              <!-- <img src="/images/DashboardShip.png" width=100% height=100% /> -->
+              <div class="row">
+                  <div class="col-md-4 col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading clearfix">
+                            <h3>Vessel Job Tracker</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="piechart" class="chart"></div>
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <span class="glyphicon glyphicon-pencil pull-left">  Active</span>
+                            <button id="btnReset" class="btn btn-small pull-right">Reset</button>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-sm-12">
+                        <div class="panel panel-default">
+                                <div class="panel-heading clearfix">
+                                    <h3>VDR Analysis</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="barChart" class="chart">
+                                    </div>
+                                </div>
+                                <div class="panel-footer clearfix">
+                                    <span class="glyphicon glyphicon-pencil pull-left">  Active</span>
+                                    <button id="btnReset" class="btn btn-small pull-right">Reset</button>
+                                </div>
+                        </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
 </body>
 </html>
 
-
+<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
 <script src="/javascripts/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="/javascripts/chartist.min.js"></script>
 <script src="/javascripts/bootstrap-notify.js"></script>
 <script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+<script src="/javascripts/light-bootstrap-dashboard.js?v=1.4.0"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script> -->
+<style>
+    .bar {
+            fill: steelblue;
+        }
+</style>
+<script type="text/javascript">
 
+    loadPie();
+    loadBar();
+    function loadPie(){
+        $("#piechart").html('');
+        $.get('/d3sample', function(res) {
+                console.log(res);
+                var fdata = JSON.parse(res);
+                console.log(fdata.length);
+                drawPieChart(fdata);
+        
+            });
+    }
+    function loadBar(){
+        $("#barChart").html('');
+        $.get('/d3/bar', function(res) {
+                console.log(res);
+                var fdata = JSON.parse(res);
+                console.log(fdata.length);
+                drawBarChart(fdata);
+        
+            });
+    }
 
+    function drawPieChart(data) {
+       
+            var text = "";
 
+            var width = 200;
+            var height = 300;
+            var thickness = 40;
+            var duration = 750;
+            var padding = 10;
+            var opacity = .8;
+            var opacityHover = 1;
+            var otherOpacityOnHover = .8;
+            var tooltipMargin = 13;
 
+            var radius = Math.min(width-padding, height-padding) / 2;
+            var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+            var svg = d3.select("#piechart")
+            .append('svg')
+            .attr('class', 'pie')
+            .attr('width', width)
+            .attr('height', height);
+
+            var g = svg.append('g')
+            .attr('transform', 'translate(' + (width/2) + ',' + (height/2) + ')');
+
+            var arc = d3.arc()
+            .innerRadius(0)
+            .outerRadius(radius);
+
+            var pie = d3.pie()
+            .value(function(d) { return d.yearCount; })
+            .sort(null);
+
+            var path = g.selectAll('path')
+            .data(pie(data))
+            .enter()
+            .append("g")  
+            .append('path')
+            .attr('d', arc)
+            .attr('fill', (d,i) => color(i))
+            .style('opacity', opacity)
+            .style('stroke', 'white')
+            .on("mouseover", function(d) {
+                d3.selectAll('path')
+                    .style("opacity", otherOpacityOnHover);
+                d3.select(this) 
+                    .style("opacity", opacityHover);
+
+                let g = d3.select("svg")
+                    .style("cursor", "pointer")
+                    .append("g")
+                    .attr("class", "tooltip")
+                    .style("opacity", 0);
+            
+                g.append("text")
+                    .attr("class", "name-text")
+                    .text(`${d.data.year} (${d.data.yearCount})`)
+                    .attr('text-anchor', 'middle');
+                
+                let text = g.select("text");
+                let bbox = text.node().getBBox();
+                let padding = 2;
+                g.insert("rect", "text")
+                    .attr("x", bbox.x - padding)
+                    .attr("y", bbox.y - padding)
+                    .attr("width", bbox.width + (padding*2))
+                    .attr("height", bbox.height + (padding*2))
+                    .style("fill", "white")
+                    .style("opacity", 0.75);
+                })
+            .on("mousemove", function(d) {
+                    let mousePosition = d3.mouse(this);
+                    let x = mousePosition[0] + width/2;
+                    let y = mousePosition[1] + height/2 - tooltipMargin;
+                
+                    let text = d3.select('.tooltip text');
+                    let bbox = text.node().getBBox();
+                    if(x - bbox.width/2 < 0) {
+                    x = bbox.width/2;
+                    }
+                    else if(width - x - bbox.width/2 < 0) {
+                    x = width - bbox.width/2;
+                    }
+                
+                    if(y - bbox.height/2 < 0) {
+                    y = bbox.height + tooltipMargin * 2;
+                    }
+                    else if(height - y - bbox.height/2 < 0) {
+                    y = height - bbox.height/2;
+                    }
+                
+                    d3.select('.tooltip')
+                    .style("opacity", 1)
+                    .attr('transform',`translate(${x}, ${y})`);
+                })
+            .on("mouseout", function(d) {   
+                d3.select("svg")
+                    .style("cursor", "none")  
+                    .select(".tooltip").remove();
+                d3.selectAll('path')
+                    .style("opacity", opacity);
+                })
+            .on("touchstart", function(d) {
+                d3.select("svg")
+                    .style("cursor", "none");    
+            })
+            .each(function(d, i) { this._current = i; });
+
+            let legend = d3.select("#chart").append('div')
+                        .attr('class', 'legend')
+                        .style('margin-top', '30px');
+
+            let keys = legend.selectAll('.key')
+                        .data(data)
+                        .enter().append('div')
+                        .attr('class', 'key')
+                        .style('display', 'flex')
+                        .style('align-items', 'center')
+                        .style('margin-right', '20px');
+
+                    keys.append('div')
+                        .attr('class', 'symbol')
+                        .style('height', '10px')
+                        .style('width', '10px')
+                        .style('margin', '5px 5px')
+                        .style('background-color', (d, i) => color(i));
+
+                    keys.append('div')
+                        .attr('class', 'name')
+                        .text(d => `${d.year} (${d.yearCount})`);
+
+                    keys.exit().remove();
+    }
+
+    function drawBarChart(data) {
+        //var svg = d3.select("#barChart").append("svg"),
+        var margin = {top: 20, right: 20, bottom: 30, left: 40},
+        width = 460 - margin.left - margin.right,
+        height = 200 - margin.top - margin.bottom;
+
+        // set the ranges
+        var x = d3.scaleBand()
+                .range([0, width])
+                .padding(0.5);
+        var y = d3.scaleLinear()
+                .range([height, 0]);
+                
+        // append the svg object to the body of the page
+        // append a 'group' element to 'svg'
+        // moves the 'group' element to the top left margin
+        var svg = d3.select("#barChart").append("svg")
+            .attr("width", "100%")
+            .attr("height", "245px")
+	    .attr("class","ct-chart-bar")
+        .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        // Scale the range of the data in the domains
+        x.domain(data.map(function(d) { return d.year; }));
+        y.domain([0, d3.max(data, function(d) { return d.yearCount; })]);
+
+        // append the rectangles for the bar chart
+        svg.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d) { return x(d.year); })
+            .attr("width", x.bandwidth())
+            .attr("y", function(d) { return y(d.yearCount); })
+            .attr("height", function(d) { return height - y(d.yearCount); });
+
+        // add the x Axis
+        svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x));
+
+        // add the y Axis
+        svg.append("g")
+        .call(d3.axisLeft(y).tickFormat(function(d){
+             return d;
+         })
+         .ticks(5))
+            //.call(d3.axisLeft(y));
+    }
+
+</script>
