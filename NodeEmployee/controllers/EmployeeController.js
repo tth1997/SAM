@@ -1,7 +1,5 @@
 var mongoose = require("mongoose");
 var Employee = require("../models/Employee");
-var Country=require("../models/Country");
-var Jobs = require("../models/Job");
 var DocumentType = require("../models/DocumentType");
 var multer = require('multer');
 var fs = require('fs-extra')

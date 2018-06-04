@@ -10,7 +10,6 @@ var filessystem = require('fs');
 var cache = require('memory-cache');
 const opn= require('opn');
 
-var Employee = require("../models/Employee");
 var DocumentEmp = require("../models/DocumentEmp");
 var DocumentType = require("../models/DocumentType");
 
