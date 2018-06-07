@@ -169,7 +169,7 @@
                           <div class="col-md-4">
                             <div class="form-group">
                               <label>City *</label>
-                              <select class="form-control" name="city" id="country">
+                              <select class="form-control" name="city" id="city">
 
                               </select>
                             </div>
@@ -310,6 +310,8 @@
               };
 
               $(document).ready(function() {
+                $('#comment').val('<%= employee.comment %>');
+
                 var dt1 = '<%= employee.dateofbirth %>';
                 d1 = new Date(dt1);
 
@@ -319,7 +321,7 @@
                 d2 = new Date(dt2);
                 $('#dateofjoin').val($.datepicker.formatDate('yy-mm-dd', d2));
 
-                $('#comment').val('<%= employee.comment %>');
+
                 if('<%=employee.maritalstatus%>'!=null)
                 {
 

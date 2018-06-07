@@ -2,26 +2,11 @@ var mongoose = require("mongoose");
 var Employee = require("../models/Employee");
 var DocumentType = require("../models/DocumentType");
 var multer = require('multer');
-var fs = require('fs-extra')
+var fs = require('fs-extra');
 var filessystem = require('fs');
 var cache = require('memory-cache');
 var employeeController = {};
 var obj = {};
-
-// file upload destination folder
-var storage = multer.diskStorage({
-	destination: function(req, file, cb) {
-		cb(null, 'public/uploads/employeerecords');
-	},
-  // file upload extension
-  filename: function(req, file, cb) {
-  	cb(null, (file.originalname).replace(/ /g,"_"));
-  }
-});
-// file upload variable
-var upload = multer({
-	storage: storage
-});
 
 // Show list of employees
 
