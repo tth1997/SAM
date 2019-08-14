@@ -261,6 +261,7 @@
 				}
 			});
 		}
+
 		$("#subbtn3").click(function (event) {
 			if(validatedoc()){  
 
@@ -371,12 +372,13 @@
         	e.preventDefault();
         }// end desc
     }
-
 };
+
 $.noConflict();
 jQuery( document ).ready(function( $ ) {
 
 	$('#empTable').DataTable();
+	
 	$('tr').each(function(){
 		if($(this).find('td:last').text().trim() === "Active"){
 
